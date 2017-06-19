@@ -4,7 +4,7 @@ module.exports = function (hash, network) {
     case 88: // main net
       return `http://ubiqscan.io/tx/${hash}`
       break
-    case 9: // rinkeby test net
+    case 9: // test net
       return `http://rinkeby.ubiqscan.io/tx/${hash}`
       break
     default:

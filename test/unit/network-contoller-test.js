@@ -7,7 +7,7 @@ describe('# Network Controller', function () {
   beforeEach(function () {
     networkController = new NetworkController({
       provider: {
-        type: 'rinkeby',
+        type: 'testnet',
       },
     })
     // stub out provider
