@@ -5,7 +5,7 @@ module.exports = function (address, network) {
     case 88: // main net
       link = `https://rpc1.ubiqscan.io/en/address/${address}`
       break
-    case 9: // rinkeby test net
+    case 9: // test net
       link = `http://rinkeby.ubiqscan.io/address/${address}`
       break
     default:

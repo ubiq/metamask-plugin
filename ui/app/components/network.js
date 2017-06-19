@@ -34,8 +34,8 @@ Network.prototype.render = function () {
   } else if (providerName === 'mainnet') {
     hoverText = 'Main Ubiq Network'
     iconName = 'ethereum-network'
-  } else if (providerName === 'rinkeby') {
-    hoverText = 'Rinkeby Test Network'
+  } else if (providerName === 'testnet') {
+    hoverText = 'Test Network'
     iconName = 'rinkeby-test-network'
   } else {
     hoverText = 'Unknown Private Network'
