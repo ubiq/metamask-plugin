@@ -3,14 +3,14 @@ module.exports = function (hash, network) {
   let prefix
   switch (net) {
     case 88: // main net
-      prefix = 'rpc1.'
+      prefix = ''
       break
     case 9: // rinkeby test net
       prefix = 'rinkeby.'
       break
     default:
-      prefix = 'rpc1.'
+      prefix = ''
   }
 
-  return `http://${prefix}ubiqscan.io/tx/${hash}`
+  return `http://${prefix}ubiqscan.io/en/tx/${hash}`
 }
