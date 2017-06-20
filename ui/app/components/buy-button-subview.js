@@ -147,9 +147,8 @@ BuyButtonSubview.prototype.formVersionSubview = function () {
           width: '225px',
           marginBottom: '15px',
         },
-      }, 'In order to access this feature, please switch to the Main Network'),
-    ]
-  )
+      }, 'In order to access this feature, please switch to the Main Network')
+    ]);
   }
 }
 
