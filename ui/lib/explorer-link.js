@@ -1,13 +1,16 @@
 module.exports = function (hash, network) {
   const net = parseInt(network)
+  let prefix
   switch (net) {
     case 88: // main net
-      return `http://ubiqscan.io/tx/${hash}`
+      prefix = ''
       break
     case 9: // test net
-      return `http://rinkeby.ubiqscan.io/tx/${hash}`
+      prefix = 'rinkeby.'
       break
     default:
-      return `http://ubiqscan.io/tx/${hash}`
+      prefix = ''
   }
+
+  return `http://${prefix}ubiqscan.io/en/tx/${hash}`
 }
