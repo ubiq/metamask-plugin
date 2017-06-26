@@ -247,7 +247,7 @@ App.prototype.renderNetworkDropdown = function () {
     }),
 
     h(DropMenuItem, {
-      label: 'Rinkeby Test Network',
+      label: 'Test Network',
       closeMenu: () => this.setState({ isNetworkMenuOpen: false}),
       action: () => props.dispatch(actions.setProviderType('testnet')),
       icon: h('.menu-icon.golden-square'),
