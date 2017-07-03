@@ -72,11 +72,10 @@ function isAllOneCase (address) {
   return address === lower || address === upper
 }
 
-// Takes wei Hex, returns wei BN, even if input is null
+// Takes BN and returns it or if there's no value it will return BN by default
 function numericBalance (balance) {
   if (!balance) return new ethUtil.BN(0, 16)
-  var stripped = ethUtil.stripHexPrefix(balance)
-  return new ethUtil.BN(stripped, 16)
+  return new ethUtil.BN(balance)
 }
 
 // Takes  hex, returns [beforeDecimal, afterDecimal]

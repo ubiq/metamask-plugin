@@ -22,7 +22,7 @@ function TransactionListItem () {
 TransactionListItem.prototype.render = function () {
   const { transaction, network, conversionRate, currentCurrency } = this.props
   if (transaction.key === 'shapeshift') {
-    if (network === '1') return h(ShiftListItem, transaction)
+    if (network === '88') return h(ShiftListItem, transaction)
   }
   var date = formatDate(transaction.time)
 
@@ -105,6 +105,7 @@ TransactionListItem.prototype.render = function () {
         shorten: true,
         showFiat: false,
         style: {fontSize: '15px'},
+        needsParse: false
       }) : h('.flex-column'),
     ])
   )
