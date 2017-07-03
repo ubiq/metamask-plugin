@@ -623,8 +623,8 @@ module.exports = class MetamaskController extends EventEmitter {
 // network
 
   setDefaultRpc () {
-    this.networkController.setRpcTarget('http://localhost:8545')
-    return Promise.resolve('http://localhost:8545')
+    this.networkController.setRpcTarget('http://localhost:8588')
+    return Promise.resolve('http://localhost:8588')
   }
 
   setCustomRpc (rpcTarget, rpcList) {

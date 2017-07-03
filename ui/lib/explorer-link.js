@@ -2,20 +2,15 @@ module.exports = function (hash, network) {
   const net = parseInt(network)
   let prefix
   switch (net) {
-    case 1: // main net
+    case 88: // main net
       prefix = ''
       break
-    case 3: // ropsten test net
-      prefix = 'ropsten.'
-      break
-    case 4: // rinkeby test net
+    case 9: // test net
       prefix = 'rinkeby.'
-      break
-    case 42: // kovan test net
-      prefix = 'kovan.'
       break
     default:
       prefix = ''
   }
-  return `http://${prefix}etherscan.io/tx/${hash}`
+
+  return `http://${prefix}ubiqscan.io/en/tx/${hash}`
 }

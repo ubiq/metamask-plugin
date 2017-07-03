@@ -4,7 +4,7 @@ const inherits = require('util').inherits
 const connect = require('react-redux').connect
 const actions = require('../actions')
 const CoinbaseForm = require('./coinbase-form')
-const ShapeshiftForm = require('./shapeshift-form')
+// const ShapeshiftForm = require('./shapeshift-form')
 const Loading = require('./loading')
 const AccountPanel = require('./account-panel')
 const RadioList = require('./custom-radio-list')
@@ -61,7 +61,7 @@ BuyButtonSubview.prototype.render = function () {
             paddingTop: '4px',
             paddingBottom: '4px',
           },
-        }, 'Buy Eth'),
+        }, 'Buy UBQ'),
       ]),
       h('div', {
         style: {
@@ -105,12 +105,10 @@ BuyButtonSubview.prototype.render = function () {
         h(RadioList, {
           defaultFocus: props.buyView.subview,
           labels: [
-            'Coinbase',
-            'ShapeShift',
+            'Bittrex',
           ],
           subtext: {
-            'Coinbase': 'Crypto/FIAT (USA only)',
-            'ShapeShift': 'Crypto',
+            'Bittrex': 'Crypto',
           },
           onClick: this.radioHandler.bind(this),
         }),
@@ -133,11 +131,9 @@ BuyButtonSubview.prototype.render = function () {
 
 BuyButtonSubview.prototype.formVersionSubview = function () {
   const network = this.props.network
-  if (network === '1') {
+  if (network === '88') {
     if (this.props.buyView.formView.coinbase) {
       return h(CoinbaseForm, this.props)
-    } else if (this.props.buyView.formView.shapeshift) {
-      return h(ShapeshiftForm, this.props)
     }
   } else {
     return h('div.flex-column', {
@@ -152,25 +148,6 @@ BuyButtonSubview.prototype.formVersionSubview = function () {
           marginBottom: '15px',
         },
       }, 'In order to access this feature, please switch to the Main Network'),
-      ((network === '3') || (network === '4') || (network === '42')) ? h('h3.text-transform-uppercase', 'or go to the') : null,
-      (network === '3') ? h('button.text-transform-uppercase', {
-        onClick: () => this.props.dispatch(actions.buyEth({ network })),
-        style: {
-          marginTop: '15px',
-        },
-      }, 'Ropsten Test Faucet') : null,
-      (network === '4') ? h('button.text-transform-uppercase', {
-        onClick: () => this.props.dispatch(actions.buyEth({ network })),
-        style: {
-          marginTop: '15px',
-        },
-      }, 'Rinkeby Test Faucet') : null,
-      (network === '42') ? h('button.text-transform-uppercase', {
-        onClick: () => this.props.dispatch(actions.buyEth({ network })),
-        style: {
-          marginTop: '15px',
-        },
-      }, 'Kovan Test Faucet') : null,
     ])
   }
 }
@@ -189,9 +166,7 @@ BuyButtonSubview.prototype.backButtonContext = function () {
 
 BuyButtonSubview.prototype.radioHandler = function (event) {
   switch (event.target.title) {
-    case 'Coinbase':
+    case 'Bittrex':
       return this.props.dispatch(actions.coinBaseSubview())
-    case 'ShapeShift':
-      return this.props.dispatch(actions.shapeShiftSubview(this.props.provider.type))
   }
 }

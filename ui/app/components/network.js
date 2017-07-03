@@ -32,19 +32,10 @@ Network.prototype.render = function () {
       src: 'images/loading.svg',
     })
   } else if (providerName === 'mainnet') {
-    hoverText = 'Main Ethereum Network'
+    hoverText = 'Main Ubiq Network'
     iconName = 'ethereum-network'
-  } else if (providerName === 'ropsten') {
-    hoverText = 'Ropsten Test Network'
-    iconName = 'ropsten-test-network'
-  } else if (parseInt(networkNumber) === 3) {
-    hoverText = 'Ropsten Test Network'
-    iconName = 'ropsten-test-network'
-  } else if (providerName === 'kovan') {
-    hoverText = 'Kovan Test Network'
-    iconName = 'kovan-test-network'
-  } else if (providerName === 'rinkeby') {
-    hoverText = 'Rinkeby Test Network'
+  } else if (providerName === 'testnet') {
+    hoverText = 'Test Network'
     iconName = 'rinkeby-test-network'
   } else {
     hoverText = 'Unknown Private Network'
@@ -65,25 +56,7 @@ Network.prototype.render = function () {
                 style: {
                   color: '#039396',
                 }},
-              'Ethereum Main Net'),
-            ])
-          case 'ropsten-test-network':
-            return h('.network-indicator', [
-              h('.menu-icon.red-dot'),
-              h('.network-name', {
-                style: {
-                  color: '#ff6666',
-                }},
-              'Ropsten Test Net'),
-            ])
-          case 'kovan-test-network':
-            return h('.network-indicator', [
-              h('.menu-icon.hollow-diamond'),
-              h('.network-name', {
-                style: {
-                  color: '#690496',
-                }},
-              'Kovan Test Net'),
+              'Ubiq Main Net'),
             ])
           case 'rinkeby-test-network':
             return h('.network-indicator', [
@@ -92,7 +65,7 @@ Network.prototype.render = function () {
                 style: {
                   color: '#e7a218',
                 }},
-              'Rinkeby Test Net'),
+              'Ubiq Test Net'),
             ])
           default:
             return h('.network-indicator', [

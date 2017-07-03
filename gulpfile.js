@@ -108,7 +108,7 @@ gulp.task('manifest:opera', function() {
       "tabs",
       "clipboardWrite",
       "clipboardRead",
-      "http://localhost:8545/"
+      "http://localhost:8588/"
     ]
     return json
   }))

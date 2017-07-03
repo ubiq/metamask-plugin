@@ -72,11 +72,10 @@ function isAllOneCase (address) {
   return address === lower || address === upper
 }
 
-// Takes wei Hex, returns wei BN, even if input is null
+// Takes BN and returns it or if there's no value it will return BN by default
 function numericBalance (balance) {
   if (!balance) return new ethUtil.BN(0, 16)
-  var stripped = ethUtil.stripHexPrefix(balance)
-  return new ethUtil.BN(stripped, 16)
+  return new ethUtil.BN(balance)
 }
 
 // Takes  hex, returns [beforeDecimal, afterDecimal]
@@ -104,14 +103,14 @@ function formatBalance (balance, decimalsToKeep, needsParse = true) {
       if (afterDecimal !== '0') {
         var sigFigs = afterDecimal.match(/^0*(.{2})/) // default: grabs 2 most significant digits
         if (sigFigs) { afterDecimal = sigFigs[0] }
-        formatted = '0.' + afterDecimal + ' ETH'
+        formatted = '0.' + afterDecimal + ' UBQ'
       }
     } else {
-      formatted = beforeDecimal + '.' + afterDecimal.slice(0, 3) + ' ETH'
+      formatted = beforeDecimal + '.' + afterDecimal.slice(0, 3) + ' UBQ'
     }
   } else {
     afterDecimal += Array(decimalsToKeep).join('0')
-    formatted = beforeDecimal + '.' + afterDecimal.slice(0, decimalsToKeep) + ' ETH'
+    formatted = beforeDecimal + '.' + afterDecimal.slice(0, decimalsToKeep) + ' UBQ'
   }
   return formatted
 }

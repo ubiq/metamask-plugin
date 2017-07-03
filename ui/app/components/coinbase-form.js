@@ -49,7 +49,7 @@ CoinbaseForm.prototype.render = function () {
 CoinbaseForm.prototype.toCoinbase = function () {
   const props = this.props
   const address = props.buyView.buyAddress
-  props.dispatch(actions.buyEth({ network: '1', address, amount: 0 }))
+  props.dispatch(actions.buyEth({ network: '88', address, amount: 0 }))
 }
 
 CoinbaseForm.prototype.renderLoading = function () {

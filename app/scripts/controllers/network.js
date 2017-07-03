@@ -5,7 +5,7 @@ const ComposedStore = require('obs-store/lib/composed')
 const extend = require('xtend')
 const EthQuery = require('eth-query')
 const RPC_ADDRESS_LIST = require('../config.js').network
-const DEFAULT_RPC = RPC_ADDRESS_LIST['rinkeby']
+const DEFAULT_RPC = RPC_ADDRESS_LIST['testnet']
 
 module.exports = class NetworkController extends EventEmitter {
   constructor (config) {

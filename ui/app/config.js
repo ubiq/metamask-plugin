@@ -153,22 +153,12 @@ function currentProviderDisplay (metamaskState) {
 
     case 'mainnet':
       title = 'Current Network'
-      value = 'Main Ethereum Network'
+      value = 'Main Ubiq Network'
       break
 
-    case 'ropsten':
+    case 'testnet':
       title = 'Current Network'
-      value = 'Ropsten Test Network'
-      break
-
-    case 'kovan':
-      title = 'Current Network'
-      value = 'Kovan Test Network'
-      break
-
-    case 'rinkeby':
-      title = 'Current Network'
-      value = 'Rinkeby Test Network'
+      value = 'Test Network'
       break
 
     default:

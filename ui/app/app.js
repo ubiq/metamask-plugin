@@ -238,7 +238,7 @@ App.prototype.renderNetworkDropdown = function () {
     `),
 
     h(DropMenuItem, {
-      label: 'Main Ethereum Network',
+      label: 'Main Ubiq Network',
       closeMenu: () => this.setState({ isNetworkMenuOpen: false }),
       action: () => props.dispatch(actions.setProviderType('mainnet')),
       icon: h('.menu-icon.diamond'),
@@ -247,34 +247,16 @@ App.prototype.renderNetworkDropdown = function () {
     }),
 
     h(DropMenuItem, {
-      label: 'Ropsten Test Network',
-      closeMenu: () => this.setState({ isNetworkMenuOpen: false }),
-      action: () => props.dispatch(actions.setProviderType('ropsten')),
-      icon: h('.menu-icon.red-dot'),
-      activeNetworkRender: props.network,
-      provider: props.provider,
-    }),
-
-    h(DropMenuItem, {
-      label: 'Kovan Test Network',
+      label: 'Test Network',
       closeMenu: () => this.setState({ isNetworkMenuOpen: false}),
-      action: () => props.dispatch(actions.setProviderType('kovan')),
-      icon: h('.menu-icon.hollow-diamond'),
-      activeNetworkRender: props.network,
-      provider: props.provider,
-    }),
-
-    h(DropMenuItem, {
-      label: 'Rinkeby Test Network',
-      closeMenu: () => this.setState({ isNetworkMenuOpen: false}),
-      action: () => props.dispatch(actions.setProviderType('rinkeby')),
+      action: () => props.dispatch(actions.setProviderType('testnet')),
       icon: h('.menu-icon.golden-square'),
       activeNetworkRender: props.network,
       provider: props.provider,
     }),
 
     h(DropMenuItem, {
-      label: 'Localhost 8545',
+      label: 'Localhost 8588',
       closeMenu: () => this.setState({ isNetworkMenuOpen: false }),
       action: () => props.dispatch(actions.setDefaultRpcTarget(rpcList)),
       icon: h('i.fa.fa-question-circle.fa-lg'),
@@ -529,7 +511,7 @@ App.prototype.renderCustomOption = function (provider) {
 
   switch (rpcTarget) {
 
-    case 'http://localhost:8545':
+    case 'http://localhost:8588':
       return null
 
     default:
@@ -548,7 +530,7 @@ App.prototype.renderCommonRpc = function (rpcList, provider) {
   const props = this.props
 
   return rpcList.map((rpc) => {
-    if ((rpc === 'http://localhost:8545') || (rpc === rpcTarget)) {
+    if ((rpc === 'http://localhost:8588') || (rpc === rpcTarget)) {
       return null
     } else {
       return h(DropMenuItem, {

@@ -42,7 +42,7 @@ PendingTx.prototype.render = function () {
   const address = txParams.from || props.selectedAddress
   const identity = props.identities[address] || { address: address }
   const account = props.accounts[address]
-  const balance = account ? account.balance : '0x0'
+  const balance = account ? account.balance : new BN(0, 16)
 
   // recipient check
   const isValidAddress = !txParams.to || util.isValidAddress(txParams.to)
@@ -154,7 +154,7 @@ PendingTx.prototype.render = function () {
             // in the way that gas and gasLimit currently are.
             h('.row', [
               h('.cell.label', 'Amount'),
-              h(EthBalance, { value: txParams.value, currentCurrency, conversionRate }),
+              h(EthBalance, { value: txParams.value, currentCurrency, conversionRate, false }),
             ]),
 
             // Gas Limit (customizable)
