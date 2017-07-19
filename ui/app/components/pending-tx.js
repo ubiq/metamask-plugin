@@ -155,7 +155,7 @@ PendingTx.prototype.render = function () {
             // in the way that gas and gasLimit currently are.
             h('.row', [
               h('.cell.label', 'Amount'),
-              h(EthBalance, { value: txParams.value, currentCurrency, conversionRate, false }),
+              h(EthBalance, { value: txParams.value, currentCurrency, conversionRate }),
             ]),
 
             // Gas Limit (customizable)

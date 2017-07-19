@@ -75,6 +75,7 @@ function isAllOneCase (address) {
 // Takes BN and returns it or if there's no value it will return BN by default
 function numericBalance (balance) {
   if (!balance) return new ethUtil.BN(0, 16)
+  var stripped = ethUtil.stripHexPrefix(balance)
   return new ethUtil.BN(balance)
 }
 

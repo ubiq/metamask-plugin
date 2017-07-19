@@ -538,13 +538,9 @@ App.prototype.getNetworkName = function () {
   let name
 
   if (providerName === 'mainnet') {
-    name = 'Main Ethereum Network'
-  } else if (providerName === 'ropsten') {
-    name = 'Ropsten Test Network'
-  } else if (providerName === 'kovan') {
-    name = 'Kovan Test Network'
-  } else if (providerName === 'rinkeby') {
-    name = 'Rinkeby Test Network'
+    name = 'Main Ubiq Network'
+  } else if (providerName === 'testnet') {
+    name = 'Test Network'
   } else {
     name = 'Unknown Private Network'
   }
