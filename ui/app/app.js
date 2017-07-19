@@ -19,9 +19,10 @@ const NoticeScreen = require('./components/notice')
 const generateLostAccountsNotice = require('../lib/lost-accounts-notice')
 // other views
 const ConfigScreen = require('./config')
+const AddTokenScreen = require('./add-token')
 const Import = require('./accounts/import')
 const InfoScreen = require('./info')
-const LoadingIndicator = require('./components/loading')
+const Loading = require('./components/loading')
 const SandwichExpando = require('sandwich-expando')
 const MenuDroppo = require('menu-droppo')
 const DropMenuItem = require('./components/drop-menu-item')
@@ -64,7 +65,11 @@ function mapStateToProps (state) {
 
 App.prototype.render = function () {
   var props = this.props
-  const { isLoading, loadingMessage, transForward } = props
+  const { isLoading, loadingMessage, transForward, network } = props
+  const isLoadingNetwork = network === 'loading' && props.currentView.name !== 'config'
+  const loadMessage = loadingMessage || isLoadingNetwork ?
+    `Connecting to ${this.getNetworkName()}` : null
+
   log.debug('Main ui render function')
 
   return (
@@ -77,12 +82,15 @@ App.prototype.render = function () {
       },
     }, [
 
-      h(LoadingIndicator, { isLoading, loadingMessage }),
-
       // app bar
       this.renderAppBar(),
       this.renderNetworkDropdown(),
       this.renderDropdown(),
+
+      h(Loading, {
+        isLoading: isLoading || isLoadingNetwork,
+        loadingMessage: loadMessage,
+      }),
 
       // panel content
       h('.app-primary.flex-grow' + (transForward ? '.from-right' : '.from-left'), {
@@ -124,11 +132,11 @@ App.prototype.renderAppBar = function () {
           background: props.isUnlocked ? 'white' : 'none',
           height: '36px',
           position: 'relative',
-          zIndex: 10,
+          zIndex: 12,
         },
       }, [
 
-        h('div', {
+        h('div.left-menu-section', {
           style: {
             display: 'flex',
             flexDirection: 'row',
@@ -143,21 +151,15 @@ App.prototype.renderAppBar = function () {
             src: '/images/icon-128.png',
           }),
 
-          h('#network-spacer.flex-center', {
-            style: {
-              marginRight: '-72px',
+          h(NetworkIndicator, {
+            network: this.props.network,
+            provider: this.props.provider,
+            onClick: (event) => {
+              event.preventDefault()
+              event.stopPropagation()
+              this.setState({ isNetworkMenuOpen: !isNetworkMenuOpen })
             },
-          }, [
-            h(NetworkIndicator, {
-              network: this.props.network,
-              provider: this.props.provider,
-              onClick: (event) => {
-                event.preventDefault()
-                event.stopPropagation()
-                this.setState({ isNetworkMenuOpen: !isNetworkMenuOpen })
-              },
-            }),
-          ]),
+          }),
         ]),
 
         // metamask name
@@ -221,7 +223,7 @@ App.prototype.renderNetworkDropdown = function () {
     onClickOutside: (event) => {
       this.setState({ isNetworkMenuOpen: !isOpen })
     },
-    zIndex: 1,
+    zIndex: 11,
     style: {
       position: 'absolute',
       left: 0,
@@ -282,7 +284,7 @@ App.prototype.renderDropdown = function () {
 
   return h(MenuDroppo, {
     isOpen: isOpen,
-    zIndex: 1,
+    zIndex: 11,
     onClickOutside: (event) => {
       this.setState({ isMainMenuOpen: !isOpen })
     },
@@ -433,6 +435,10 @@ App.prototype.renderPrimary = function () {
       log.debug('rendering confirm tx screen')
       return h(ConfirmTxScreen, {key: 'confirm-tx'})
 
+    case 'add-token':
+      log.debug('rendering add-token screen from unlock screen.')
+      return h(AddTokenScreen, {key: 'add-token'})
+
     case 'config':
       log.debug('rendering config screen')
       return h(ConfigScreen, {key: 'config'})
@@ -523,6 +529,27 @@ App.prototype.renderCustomOption = function (provider) {
         activeNetworkRender: 'custom',
       })
   }
+}
+
+App.prototype.getNetworkName = function () {
+  const { provider } = this.props
+  const providerName = provider.type
+
+  let name
+
+  if (providerName === 'mainnet') {
+    name = 'Main Ethereum Network'
+  } else if (providerName === 'ropsten') {
+    name = 'Ropsten Test Network'
+  } else if (providerName === 'kovan') {
+    name = 'Kovan Test Network'
+  } else if (providerName === 'rinkeby') {
+    name = 'Rinkeby Test Network'
+  } else {
+    name = 'Unknown Private Network'
+  }
+
+  return name
 }
 
 App.prototype.renderCommonRpc = function (rpcList, provider) {

@@ -1,16 +1,6 @@
-module.exports = function (hash, network) {
-  const net = parseInt(network)
-  let prefix
-  switch (net) {
-    case 88: // main net
-      prefix = ''
-      break
-    case 9: // test net
-      prefix = 'rinkeby.'
-      break
-    default:
-      prefix = ''
-  }
+const prefixForNetwork = require('./etherscan-prefix-for-network')
 
+module.exports = function (hash, network) {
+  const prefix = prefixForNetwork(network)
   return `http://${prefix}ubiqscan.io/en/tx/${hash}`
 }

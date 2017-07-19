@@ -74,6 +74,7 @@ var actions = {
   SHOW_CONF_MSG_PAGE: 'SHOW_CONF_MSG_PAGE',
   SET_CURRENT_FIAT: 'SET_CURRENT_FIAT',
   setCurrentCurrency: setCurrentCurrency,
+  setCurrentAccountTab,
   // account detail screen
   SHOW_SEND_PAGE: 'SHOW_SEND_PAGE',
   showSendPage: showSendPage,
@@ -120,7 +121,10 @@ var actions = {
   SET_PROVIDER_TYPE: 'SET_PROVIDER_TYPE',
   USE_ETHERSCAN_PROVIDER: 'USE_ETHERSCAN_PROVIDER',
   useEtherscanProvider: useEtherscanProvider,
-  showConfigPage: showConfigPage,
+  showConfigPage,
+  SHOW_ADD_TOKEN_PAGE: 'SHOW_ADD_TOKEN_PAGE',
+  showAddTokenPage,
+  addToken,
   setRpcTarget: setRpcTarget,
   setDefaultRpcTarget: setDefaultRpcTarget,
   setProviderType: setProviderType,
@@ -218,7 +222,7 @@ function confirmSeedWords () {
         return dispatch(actions.displayWarning(err.message))
       }
 
-      console.log('Seed word cache cleared. ' + account)
+      log.info('Seed word cache cleared. ' + account)
       dispatch(actions.showAccountDetail(account))
     })
   }
@@ -338,7 +342,7 @@ function setCurrentCurrency (currencyCode) {
     background.setCurrentCurrency(currencyCode, (err, data) => {
       dispatch(this.hideLoadingIndication())
       if (err) {
-        console.error(err.stack)
+        log.error(err.stack)
         return dispatch(actions.displayWarning(err.message))
       }
       dispatch({
@@ -409,7 +413,7 @@ function sendTx (txData) {
     background.approveTransaction(txData.id, (err) => {
       if (err) {
         dispatch(actions.txError(err))
-        return console.error(err.message)
+        return log.error(err.message)
       }
       dispatch(actions.completedTx(txData.id))
     })
@@ -424,7 +428,7 @@ function updateAndApproveTx (txData) {
       dispatch(actions.hideLoadingIndication())
       if (err) {
         dispatch(actions.txError(err))
-        return console.error(err.message)
+        return log.error(err.message)
       }
       dispatch(actions.completedTx(txData.id))
     })
@@ -558,6 +562,11 @@ function lockMetamask () {
   return callBackgroundThenUpdate(background.setLocked)
 }
 
+function setCurrentAccountTab (newTabName) {
+  log.debug(`background.setCurrentAccountTab: ${newTabName}`)
+  return callBackgroundThenUpdateNoSpinner(background.setCurrentAccountTab, newTabName)
+}
+
 function showAccountDetail (address) {
   return (dispatch) => {
     dispatch(actions.showLoadingIndication())
@@ -618,6 +627,28 @@ function showConfigPage (transitionForward = true) {
   return {
     type: actions.SHOW_CONFIG_PAGE,
     value: transitionForward,
+  }
+}
+
+function showAddTokenPage (transitionForward = true) {
+  return {
+    type: actions.SHOW_ADD_TOKEN_PAGE,
+    value: transitionForward,
+  }
+}
+
+function addToken (address, symbol, decimals) {
+  return (dispatch) => {
+    dispatch(actions.showLoadingIndication())
+    background.addToken(address, symbol, decimals, (err) => {
+      dispatch(actions.hideLoadingIndication())
+      if (err) {
+        return dispatch(actions.displayWarning(err.message))
+      }
+      setTimeout(() => {
+        dispatch(actions.goHome())
+      }, 250)
+    })
   }
 }
 
@@ -965,6 +996,17 @@ function shapeShiftRequest (query, options, cb) {
 // We hide loading indication.
 // If it errored, we show a warning.
 // If it didn't, we update the state.
+function callBackgroundThenUpdateNoSpinner (method, ...args) {
+  return (dispatch) => {
+    method.call(background, ...args, (err) => {
+      if (err) {
+        return dispatch(actions.displayWarning(err.message))
+      }
+      forceUpdateMetamaskState(dispatch)
+    })
+  }
+}
+
 function callBackgroundThenUpdate (method, ...args) {
   return (dispatch) => {
     dispatch(actions.showLoadingIndication())

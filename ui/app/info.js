@@ -97,18 +97,22 @@ InfoScreen.prototype.render = function () {
               paddingLeft: '30px',
             }},
             [
+              h('div.fa.fa-support', [
+                h('a.info', {
+                  href: 'http://metamask.consensyssupport.happyfox.com',
+                  target: '_blank',
+                }, 'Visit our Support Center'),
+              ]),
               h('div.fa.fa-github', [
                 h('a.info', {
-                  href: 'https://github.com/MetaMask/faq',
+                  href: 'https://github.com/MetaMask/metamask-extension/issues/new',
                   target: '_blank',
-                  onClick (event) { this.navigateTo(event.target.href) },
-                }, 'Need Help? Read our FAQ!'),
+                }, 'Found a bug? Report it!'),
               ]),
               h('div', [
                 h('a', {
                   href: 'https://metamask.io/',
                   target: '_blank',
-                  onClick (event) { this.navigateTo(event.target.href) },
                 }, [
                   h('img.icon-size', {
                     src: 'images/icon-128.png',
@@ -126,7 +130,6 @@ InfoScreen.prototype.render = function () {
                 h('a.info', {
                   href: 'http://slack.metamask.io',
                   target: '_blank',
-                  onClick (event) { this.navigateTo(event.target.href) },
                 }, 'Join the conversation on Slack'),
               ]),
 
@@ -134,7 +137,6 @@ InfoScreen.prototype.render = function () {
                 h('a.info', {
                   href: 'https://twitter.com/metamask_io',
                   target: '_blank',
-                  onClick (event) { this.navigateTo(event.target.href) },
                 }, 'Follow us on Twitter'),
               ]),
 
@@ -142,7 +144,7 @@ InfoScreen.prototype.render = function () {
                 h('a.info', {
                   target: '_blank',
                   style: { width: '85vw' },
-                  onClick () { this.navigateTo('mailto:help@metamask.io?subject=Feedback') },
+                  href: 'mailto:help@metamask.io?subject=Feedback',
                 }, 'Email us!'),
               ]),
             ]),
@@ -155,3 +157,4 @@ InfoScreen.prototype.render = function () {
 InfoScreen.prototype.navigateTo = function (url) {
   global.platform.openWindow({ url })
 }
+

@@ -15,7 +15,7 @@ const addressSummary = util.addressSummary
 const nameForAddress = require('../../lib/contract-namer')
 const BNInput = require('./bn-as-decimal-input')
 
-const MIN_GAS_PRICE_GWEI_BN = new BN(2)
+const MIN_GAS_PRICE_GWEI_BN = new BN(1)
 const GWEI_FACTOR = new BN(1e9)
 const MIN_GAS_PRICE_BN = MIN_GAS_PRICE_GWEI_BN.mul(GWEI_FACTOR)
 const MIN_GAS_LIMIT_BN = new BN(21000)
@@ -27,6 +27,7 @@ function PendingTx () {
   this.state = {
     valid: true,
     txData: null,
+    submitting: false,
   }
 }
 
@@ -314,9 +315,9 @@ PendingTx.prototype.render = function () {
           // Accept Button
           h('input.confirm.btn-green', {
             type: 'submit',
-            value: 'ACCEPT',
+            value: 'SUBMIT',
             style: { marginLeft: '10px' },
-            disabled: insufficientBalance || !this.state.valid || !isValidAddress,
+            disabled: insufficientBalance || !this.state.valid || !isValidAddress || this.state.submitting,
           }),
 
           h('button.cancel.btn-red', {
@@ -412,11 +413,12 @@ PendingTx.prototype.onSubmit = function (event) {
   event.preventDefault()
   const txMeta = this.gatherTxMeta()
   const valid = this.checkValidity()
-  this.setState({ valid })
+  this.setState({ valid, submitting: true })
   if (valid && this.verifyGasParams()) {
     this.props.sendTransaction(txMeta, event)
   } else {
     this.props.dispatch(actions.displayWarning('Invalid Gas Parameters'))
+    this.setState({ submitting: false })
   }
 }
 

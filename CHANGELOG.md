@@ -2,7 +2,67 @@
 
 ## Current Master
 
+## 3.9.1 2017-7-19
+
+- No longer automatically request 1 ropsten ether for the first account in a new vault.
+- Now redirects from known malicious sites faster.
+- Added a link to our new support page to the help screen.
+- Fixed bug where a new transaction would be shown over the current transaction, creating a possible timing attack against user confirmation.
+- Fixed bug in nonce tracker where an incorrect nonce would be calculated.
+- Lowered minimum gas price to 1 Gwei.
+
+## 3.9.0 2017-7-12
+
+- Now detects and blocks known phishing sites.
+
+## 3.8.6 2017-7-11
+
+- Make transaction resubmission more resilient.
+- No longer validate nonce client-side in retry loop.
+- Fix bug where insufficient balance error was sometimes shown on successful transactions.
+
+## 3.8.5 2017-7-7
+
+- Fix transaction resubmit logic to fail slightly less eagerly.
+
+## 3.8.4 2017-7-7
+
+- Improve transaction resubmit logic to fail more eagerly when a user would expect it to.
+
+## 3.8.3 2017-7-6
+
+- Re-enable default token list.
+- Add origin header to dapp-bound requests to allow providers to throttle sites.
+- Fix bug that could sometimes resubmit a transaction that had been stalled due to low balance after balance was restored.
+
+## 3.8.2 2017-7-3
+
+- No longer show network loading indication on config screen, to allow selecting custom RPCs.
+- Visually indicate that network spinner is a menu.
+- Indicate what network is being searched for when disconnected.
+
+## 3.8.1 2017-6-30
+
+- Temporarily disabled loading popular tokens by default to improve performance.
+- Remove SEND token button until a better token sending form can be built, due to some precision issues.
+- Fix precision bug in token balances.
+- Cache token symbol and precisions to reduce network load.
+- Transpile some newer JavaScript, restores compatibility with some older browsers.
+
+## 3.8.0 2017-6-28
+
+- No longer stop rebroadcasting transactions
+- Add list of popular tokens held to the account detail view.
+- Add ability to add Tokens to token list.
 - Add a warning to JSON file import.
+- Add "send" link to token list, which goes to TokenFactory.
+- Fix bug where slowly mined txs would sometimes be incorrectly marked as failed.
+- Fix bug where badge count did not reflect personal_sign pending messages.
+- Seed word confirmation wording is now scarier.
+- Fix error for invalid seed words.
+- Prevent users from submitting two duplicate transactions by disabling submit.
+- Allow Dapps to specify gas price as hex string.
+- Add button for copying state logs to clipboard.
 
 ## 3.7.8 2017-6-12
 

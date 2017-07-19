@@ -20,7 +20,7 @@ function mapStateToProps (state) {
 
 CreateVaultCompleteScreen.prototype.render = function () {
   var state = this.props
-  var seed = state.seed || state.cachedSeed
+  var seed = state.seed || state.cachedSeed || ''
 
   return (
 
@@ -54,7 +54,7 @@ CreateVaultCompleteScreen.prototype.render = function () {
           textAlign: 'center',
         },
       }, [
-        h('span.error', 'These 12 words can restore all of your MetaMask accounts for this vault.\nSave them somewhere safe and secret.'),
+        h('span.error', 'These 12 words are the only way to restore your MetaMask accounts.\nSave them somewhere safe and secret.'),
       ]),
 
       h('textarea.twelve-word-phrase', {

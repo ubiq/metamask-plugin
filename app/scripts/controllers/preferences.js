@@ -7,13 +7,12 @@ class PreferencesController {
   constructor (opts = {}) {
     const initState = extend({
       frequentRpcList: [],
+      currentAccountTab: 'history',
+      tokens: [],
     }, opts.initState)
     this.store = new ObservableStore(initState)
   }
-
-  //
-  // PUBLIC METHODS
-  //
+// PUBLIC METHODS
 
   setSelectedAddress (_address) {
     return new Promise((resolve, reject) => {
@@ -27,12 +26,42 @@ class PreferencesController {
     return this.store.getState().selectedAddress
   }
 
+  addToken (rawAddress, symbol, decimals) {
+    const address = normalizeAddress(rawAddress)
+    const newEntry = { address, symbol, decimals }
+
+    const tokens = this.store.getState().tokens
+    const previousIndex = tokens.find((token, index) => {
+      return token.address === address
+    })
+
+    if (previousIndex) {
+      tokens[previousIndex] = newEntry
+    } else {
+      tokens.push(newEntry)
+    }
+
+    this.store.updateState({ tokens })
+    return Promise.resolve()
+  }
+
+  getTokens () {
+    return this.store.getState().tokens
+  }
+
   updateFrequentRpcList (_url) {
     return this.addToFrequentRpcList(_url)
       .then((rpcList) => {
         this.store.updateState({ frequentRpcList: rpcList })
         return Promise.resolve()
       })
+  }
+
+  setCurrentAccountTab (currentAccountTab) {
+    return new Promise((resolve, reject) => {
+      this.store.updateState({ currentAccountTab })
+      resolve()
+    })
   }
 
   addToFrequentRpcList (_url) {
