@@ -105,7 +105,7 @@ TransactionListItem.prototype.render = function () {
         shorten: true,
         showFiat: false,
         style: {fontSize: '15px'},
-        needsParse: false
+        needsParse: false,
       }) : h('.flex-column'),
     ])
   )

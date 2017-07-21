@@ -10,7 +10,7 @@ describe('account-link', function () {
 
   it('adds rinkeby prefix to rinkeby test network', function () {
     var result = linkGen('account', '9')
-    assert.notEqual(result.indexOf('rinkeby.ubiqscan'), -1, 'test network included')
+    assert.notEqual(result.indexOf('test.ubiqscan'), -1, 'test network included')
     assert.notEqual(result.indexOf('account'), -1, 'account included')
   })
 })

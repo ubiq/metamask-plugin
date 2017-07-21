@@ -9,6 +9,6 @@ describe('explorer-link', function () {
 
   it('adds rinkeby prefix to test network', function () {
     var result = linkGen('hash', '9')
-    assert.notEqual(result.indexOf('rinkeby'), -1, 'test network injected')
+    assert.notEqual(result.indexOf('test'), -1, 'test network injected')
   })
 })
