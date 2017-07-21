@@ -6,7 +6,7 @@ _Our Terms of Use have been updated as of September 5, 2016_
 
 ## 1. Acceptance of Terms ##
 
-MetaMask provides a platform for managing Ethereum (or "ETH") accounts, and allowing ordinary websites to interact with the Ethereum blockchain, while keeping the user in control over what transactions they approve, through our website located at[ ](http://metamask.io)[https://metamask.io/](https://metamask.io/) and browser plugin (the "Site") — which includes text, images, audio, code and other materials  (collectively, the “Content”) and all of the features, and services provided. The Site, and any other features, tools, materials, or other services offered from time to time by MetaMask are referred to here as the “Service.” Please read these Terms of Use (the “Terms” or “Terms of Use”) carefully before using the Service. By using or otherwise accessing the Services, or clicking to accept or agree to these Terms where that option is made available, you (1) accept and agree to these Terms (2) consent to the collection, use, disclosure and other handling of information as described in our Privacy Policy  and (3) any additional terms, rules and conditions of participation issued by MetaMask from time to time. If you do not agree to the Terms, then you may not access or use the Content or Services.
+Sparrow provides a platform for managing Ubiq (or "UBQ") accounts, and allowing ordinary websites to interact with the Ubiq blockchain, while keeping the user in control over what transactions they approve, through our website located at[ ](http://metamask.io)[https://metamask.io/](https://metamask.io/) and browser plugin (the "Site") — which includes text, images, audio, code and other materials  (collectively, the “Content”) and all of the features, and services provided. The Site, and any other features, tools, materials, or other services offered from time to time by MetaMask are referred to here as the “Service.” Please read these Terms of Use (the “Terms” or “Terms of Use”) carefully before using the Service. By using or otherwise accessing the Services, or clicking to accept or agree to these Terms where that option is made available, you (1) accept and agree to these Terms (2) consent to the collection, use, disclosure and other handling of information as described in our Privacy Policy  and (3) any additional terms, rules and conditions of participation issued by MetaMask from time to time. If you do not agree to the Terms, then you may not access or use the Content or Services.
 
 ## 2. Modification of Terms of Use ##
 
@@ -32,11 +32,11 @@ You expressly understand and agree that your use of the Service is at your sole 
 
 ### 5.2 Sophistication and Risk of Cryptographic Systems ###
 
-By utilizing the Service or interacting with the Content or platform in any way, you represent that you understand the inherent risks associated with cryptographic systems; and warrant that you have an understanding of the usage and intricacies of native cryptographic tokens, like Ether (ETH) and Bitcoin (BTC), smart contract based tokens such as those that follow the Ethereum Token Standard (https://github.com/ethereum/EIPs/issues/20), and blockchain-based software systems.
+By utilizing the Service or interacting with the Content or platform in any way, you represent that you understand the inherent risks associated with cryptographic systems; and warrant that you have an understanding of the usage and intricacies of native cryptographic tokens, like UBQ and Bitcoin (BTC), smart contract based tokens such as those that follow the Ethereum Token Standard (https://github.com/ethereum/EIPs/issues/20), and blockchain-based software systems.
 
 ### 5.3 Risk of Regulatory Actions in One or More Jurisdictions ###
 
-MetaMask and ETH could be impacted by one or more regulatory inquiries or regulatory action, which could impede or limit the ability of MetaMask to continue to develop, or which could impede or limit your ability to access or use the Service or Ethereum blockchain.
+MetaMask and UBQ could be impacted by one or more regulatory inquiries or regulatory action, which could impede or limit the ability of MetaMask to continue to develop, or which could impede or limit your ability to access or use the Service or Ubiq blockchain.
 
 ### 5.4 Risk of Weaknesses or Exploits in the Field of Cryptography ###
 
@@ -44,11 +44,11 @@ You acknowledge and understand that Cryptography is a progressing field. Advance
 
 ### 5.5 Volatility of Crypto Currencies ###
 
-You understand that Ethereum and other blockchain technologies and associated currencies or tokens are highly volatile due to many factors including but not limited to adoption, speculation, technology and security risks. You also acknowledge that the cost of transacting on such technologies is variable and may increase at any time causing impact to any activities taking place on the Ethereum blockchain. You acknowledge these risks and represent that MetaMask cannot be held liable for such fluctuations or increased costs.
+You understand that Ubiq and other blockchain technologies and associated currencies or tokens are highly volatile due to many factors including but not limited to adoption, speculation, technology and security risks. You also acknowledge that the cost of transacting on such technologies is variable and may increase at any time causing impact to any activities taking place on the Ubiq blockchain. You acknowledge these risks and represent that MetaMask cannot be held liable for such fluctuations or increased costs.
 
 ### 5.6 Application Security ###
 
-You acknowledge that Ethereum applications are code subject to flaws and acknowledge that you are solely responsible for evaluating any code provided by the Services or Content and the trustworthiness of any third-party websites, products, smart-contracts, or Content you access or use through the Service. You further expressly acknowledge and represent that Ethereum applications can be written maliciously or negligently, that MetaMask cannot be held liable for your interaction with such applications and that such applications may cause the loss of property or even identity. This warning and others later provided by MetaMask in no way evidence or represent an on-going duty to alert you to all of the potential risks of utilizing the Service or Content.
+You acknowledge that Ubiq applications are code subject to flaws and acknowledge that you are solely responsible for evaluating any code provided by the Services or Content and the trustworthiness of any third-party websites, products, smart-contracts, or Content you access or use through the Service. You further expressly acknowledge and represent that Ubiq applications can be written maliciously or negligently, that MetaMask cannot be held liable for your interaction with such applications and that such applications may cause the loss of property or even identity. This warning and others later provided by MetaMask in no way evidence or represent an on-going duty to alert you to all of the potential risks of utilizing the Service or Content.
 
 ## 6. Indemnity ##
 
@@ -120,7 +120,7 @@ The parties shall use their best efforts to engage directly to settle any disput
 
 If the parties do not reach an agreed upon solution within a period of 30 days from the time informal dispute resolution under the Initial Dispute Resolution provision begins, then either party may initiate binding arbitration as the sole means to resolve claims, subject to the terms set forth below. Specifically, all claims arising out of or relating to these Terms (including their formation, performance and breach), the parties’ relationship with each other and/or your use of the Service shall be finally settled by binding arbitration administered by the American Arbitration Association in accordance with the provisions of its Commercial Arbitration Rules and the supplementary procedures for consumer related disputes of the American Arbitration Association (the "AAA"), excluding any rules or procedures governing or permitting class actions.
 
-The arbitrator, and not any federal, state or local court or agency, shall have exclusive authority to resolve all disputes arising out of or relating to the interpretation, applicability, enforceability or formation of these Terms, including, but not limited to any claim that all or any part of these Terms are void or voidable, or whether a claim is subject to arbitration. The arbitrator shall be empowered to grant whatever relief would be available in a court under law or in equity. The arbitrator’s award shall be written, and binding on the parties and may be entered as a judgment in any court of competent jurisdiction.
+The arbitrator, and not any federal, state or local court or agency, shall have exclusive authority to resolve all disputes arising out of or relating to the interpretation, applicability, enforceability or formation of these Terms, including, but not limited to any claim that all or any part of these Terms are void or voidable, or whUBQer a claim is subject to arbitration. The arbitrator shall be empowered to grant whatever relief would be available in a court under law or in equity. The arbitrator’s award shall be written, and binding on the parties and may be entered as a judgment in any court of competent jurisdiction.
 
 The parties understand that, absent this mandatory provision, they would have the right to sue in court and have a jury trial. They further understand that, in some instances, the costs of arbitration could exceed the costs of litigation and the right to discovery may be more limited in arbitration than in court.
 
@@ -177,4 +177,3 @@ Users with questions, complaints or claims with respect to the Service may conta
 **[Privacy](https://metamask.io/privacy.html)**
 
 **[Attributions](https://metamask.io/attributions.html)**
-

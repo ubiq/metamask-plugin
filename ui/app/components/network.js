@@ -65,7 +65,7 @@ Network.prototype.render = function () {
                 style: {
                   color: '#039396',
                 }},
-              'Ubiq Main Net'),
+              'Ubiq Net'),
             ])
           case 'rinkeby-test-network':
             return h('.network-indicator', [

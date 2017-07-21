@@ -168,7 +168,7 @@ App.prototype.renderAppBar = function () {
             position: 'relative',
             left: '9px',
           },
-        }, 'MetaMask'),
+        }, 'Sparrow'),
 
         props.isUnlocked && h('div', {
           style: {
