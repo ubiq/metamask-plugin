@@ -6,7 +6,7 @@ module.exports = function (network) {
       prefix = ''
       break
     case 9: // test net
-      prefix = 'test.'
+      prefix = 'testnet.'
       break
     default:
       prefix = ''

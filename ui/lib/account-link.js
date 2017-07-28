@@ -6,7 +6,7 @@ module.exports = function (address, network) {
       link = `https://ubiqscan.io/en/address/${address}`
       break
     case 9: // test net
-      link = `http://test.ubiqscan.io/address/${address}`
+      link = `http://testnet.ubiqscan.io/address/${address}`
       break
     default:
       link = ''
