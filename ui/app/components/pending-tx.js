@@ -305,7 +305,7 @@ PendingTx.prototype.render = function () {
             }, 'Buy Ether')
           : null,
 
-          h('button', {
+          h('button.btn-yellow', {
             onClick: (event) => {
               this.resetGasFields()
               event.preventDefault()

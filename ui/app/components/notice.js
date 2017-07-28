@@ -70,7 +70,7 @@ Notice.prototype.render = function () {
         }
 
         .markdown a {
-          color: #df6b0e;
+          color: rgb(107, 181, 126);
         }
 
       `),
