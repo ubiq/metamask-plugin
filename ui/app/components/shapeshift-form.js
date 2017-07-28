@@ -86,7 +86,7 @@ ShapeshiftForm.prototype.renderMain = function () {
         h('i.fa.fa-pencil-square-o.edit-text', {
           style: {
             fontSize: '12px',
-            color: '#F7861C',
+            color: '#6BB57E',
             position: 'relative',
             bottom: '48px',
             left: '106px',
@@ -99,7 +99,7 @@ ShapeshiftForm.prototype.renderMain = function () {
           style: {
             bottom: '5px',
             left: '5px',
-            color: '#F7861C',
+            color: '#6BB57E',
           },
           onClick: this.updateCoin.bind(this),
         }),
@@ -108,7 +108,7 @@ ShapeshiftForm.prototype.renderMain = function () {
             position: 'relative',
             bottom: '26px',
             left: '10px',
-            color: '#F7861C',
+            color: '#6BB57E',
           },
           onClick: this.updateCoin.bind(this),
         }),
@@ -167,7 +167,7 @@ ShapeshiftForm.prototype.renderMain = function () {
       h('i.fa.fa-pencil-square-o.edit-text', {
         style: {
           fontSize: '12px',
-          color: '#F7861C',
+          color: '#6BB57E',
           position: 'relative',
           bottom: '10px',
           right: '11px',

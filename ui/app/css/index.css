@@ -42,8 +42,8 @@ button, input[type="submit"] {
   transform-origin: center center;
   transition: transform 50ms ease-in;
   /* default orange */
-  background: rgba(247, 134, 28, 1);
-  box-shadow: 0px 3px 6px rgba(247, 134, 28, 0.36);
+  background: rgba(107, 181, 126, 1);
+  box-shadow: 0px 3px 6px rgba(107, 181, 126, 0.36);
 }
 
 .btn-green, input[type="submit"].btn-green {
@@ -92,8 +92,8 @@ app
 
 button.primary {
   padding: 8px 12px;
-  background: #F7861C;
-  box-shadow: 0px 3px 6px rgba(247, 134, 28, 0.36);
+  background: #6BB57E;
+  box-shadow: 0px 3px 6px rgba(107, 181, 126, 0.36);
   color: white;
   font-size: 1.1em;
   font-family: 'Montserrat Regular';
@@ -171,7 +171,7 @@ textarea.twelve-word-phrase {
 
 .check {
   margin-left: 7px;
-  color: #F7861C;
+  color: #6BB57E;
   flex: 1 0 auto;
   display: flex;
   justify-content: flex-end;
@@ -185,7 +185,7 @@ app sections
 .initialize-screen hr {
   width: 60px;
   margin: 12px;
-  border-color: #F7861C;
+  border-color: #6BB57E;
   border-style: solid;
 }
 
@@ -428,7 +428,7 @@ input.large-input {
   margin-bottom: 2px;
   font-size: 11px;
   text-rendering: geometricPrecision;
-  color: #F7861C;
+  color: #6BB57E;
 }
 .name-label:hover .edit-text {
   visibility: visible;
@@ -463,7 +463,7 @@ input.large-input {
 /* Ether Balance Widget */
 
 .ether-balance-amount {
-  color: #F7861C;
+  color: #6BB57E;
 }
 
 .ether-balance-label {
@@ -502,7 +502,7 @@ input.large-input {
   border-style: double;
   border-radius: 15px;
   border-width: 5px;
-  background: rgba(247, 134, 28, 1);
+  background: rgba(107, 181, 126, 1);
   border-color: #F7F7F7;
 }
 
@@ -516,7 +516,7 @@ input.large-input {
 }
 
 .radio-titles {
-  color: rgba(247, 134, 28, 1);
+  color: rgba(107, 181, 126, 1);
 }
 
 .radio-titles-subtext {
@@ -558,14 +558,14 @@ input.large-input {
 .input-container:hover .buy-inputs{
   box-sizing: inherit;
   border: solid;
-  border-color: #F7861C;
+  border-color: #6BB57E;
   border-width: 0.5px;
   border-radius: 2px;
 }
 
 .buy-inputs:focus{
   border: solid;
-  border-color: #F7861C;
+  border-color: #6BB57E;
   border-width: 0.5px;
   border-radius: 2px;
 }
@@ -653,7 +653,7 @@ input.large-input {
 
 .qr-message {
   font-size: 12px;
-  color: #F7861C;
+  color: #6BB57E;
 }
 
 div.message-container > div:first-child {

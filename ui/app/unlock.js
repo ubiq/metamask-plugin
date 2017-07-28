@@ -73,7 +73,7 @@ UnlockScreen.prototype.render = function () {
           onClick: () => this.props.dispatch(actions.forgotPassword()),
           style: {
             fontSize: '0.8em',
-            color: 'rgb(247, 134, 28)',
+            color: '#6BB57E',
             textDecoration: 'underline',
           },
         }, 'I forgot my password.'),

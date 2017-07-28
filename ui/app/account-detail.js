@@ -147,7 +147,7 @@ AccountDetailScreen.prototype.render = function () {
                     style: {
                       fontSize: '18px',
                       position: 'relative',
-                      color: 'rgb(247, 134, 28)',
+                      color: '#6BB57E',
                       top: '5px',
                       marginLeft: '3px',
                       marginRight: '3px',
