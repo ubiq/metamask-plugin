@@ -38,10 +38,10 @@ DropMenuItem.prototype.activeNetworkRender = function () {
   if (activeNetwork === undefined) return
 
   switch (this.props.label) {
-    case 'Main Ubiq Network':
+    case 'Ubiq Network':
       if (providerType === 'mainnet') return h('.check', '✓')
       break
-    case 'Rinkeby Test Network':
+    case 'Test Network':
       if (providerType === 'testnet') return h('.check', '✓')
       break
     case 'Localhost 8588':

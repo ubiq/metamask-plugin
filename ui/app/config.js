@@ -181,7 +181,7 @@ function currentProviderDisplay (metamaskState) {
 
     case 'mainnet':
       title = 'Current Network'
-      value = 'Main Ubiq Network'
+      value = 'Ubiq Network'
       break
 
     case 'testnet':

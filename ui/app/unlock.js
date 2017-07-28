@@ -39,7 +39,7 @@ UnlockScreen.prototype.render = function () {
             textTransform: 'uppercase',
             color: '#7F8082',
           },
-        }, 'MetaMask'),
+        }, 'Sparrow'),
 
         h('input.large-input', {
           type: 'password',

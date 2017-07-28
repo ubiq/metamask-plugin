@@ -240,7 +240,7 @@ App.prototype.renderNetworkDropdown = function () {
     `),
 
     h(DropMenuItem, {
-      label: 'Main Ubiq Network',
+      label: 'Ubiq Network',
       closeMenu: () => this.setState({ isNetworkMenuOpen: false }),
       action: () => props.dispatch(actions.setProviderType('mainnet')),
       icon: h('.menu-icon.diamond'),
@@ -538,7 +538,7 @@ App.prototype.getNetworkName = function () {
   let name
 
   if (providerName === 'mainnet') {
-    name = 'Main Ubiq Network'
+    name = 'Ubiq Network'
   } else if (providerName === 'testnet') {
     name = 'Test Network'
   } else {

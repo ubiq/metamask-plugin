@@ -41,7 +41,7 @@ Network.prototype.render = function () {
     ])
 
   } else if (providerName === 'mainnet') {
-    hoverText = 'Main Ubiq Network'
+    hoverText = 'Ubiq Network'
     iconName = 'ethereum-network'
   } else if (providerName === 'testnet') {
     hoverText = 'Test Network'
@@ -74,7 +74,7 @@ Network.prototype.render = function () {
                 style: {
                   color: '#e7a218',
                 }},
-              'Ubiq Test Net'),
+              'Test Net'),
             ])
           default:
             return h('.network-indicator', [
