@@ -3,7 +3,7 @@
   "short_name": "Sparrow",
   "version": "3.9.1",
   "manifest_version": 2,
-  "author": "https://sparrow.io",
+  "author": "https://sparrow.ubiqsmart.com",
   "description": "Ubiq Browser Extension",
   "commands": {
     "_execute_browser_action": {
@@ -21,7 +21,7 @@
   },
   "applications": {
     "gecko": {
-      "id": "webextension@metamask.io"
+      "id": "webextension@ubiqsmart.com"
     }
   },
   "default_locale": "en",
@@ -70,7 +70,7 @@
   ],
   "externally_connectable": {
     "matches": [
-      "https://metamask.io/*"
+      "https://sparrow.ubiqsmart.com/*"
     ]
   }
 }
