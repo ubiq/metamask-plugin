@@ -199,7 +199,7 @@ App.prototype.renderAppBar = function () {
             barHeight: 2,
             padding: 0,
             isOpen: state.isMainMenuOpen,
-            color: 'rgb(247,146,30)',
+            color: 'rgb(107, 181, 126)',
             onClick: (event) => {
               event.preventDefault()
               event.stopPropagation()
