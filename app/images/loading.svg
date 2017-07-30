@@ -1,55 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 21.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 120 120" style="enable-background:new 0 0 120 120;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:none;}
-	.st1{fill:#6BB57E;}
-</style>
-<rect y="0" class="st0" width="120" height="120"/>
-<path class="st1" d="M60,22.8L60,22.8c2.7,0,4.8,2.7,4.8,6v14.4c0,3.3-2.1,6-4.8,6l0,0c-2.7,0-4.8-2.7-4.8-6V28.8
-	C55.2,25.5,57.3,22.8,60,22.8z">
-<animate  accumulate="none" additive="replace" attributeName="opacity" begin="0s" calcMode="linear" dur="1s" fill="remove" from="1" repeatCount="indefinite" restart="always" to="0">
-		</animate>
-</path>
-<path class="st1" d="M83.9,31.5L83.9,31.5c2,1.7,2,5.1-0.2,7.7l-9.3,11c-2.1,2.5-5.5,3.2-7.5,1.5l0,0c-2-1.7-2-5.1,0.2-7.7l9.3-11
-	C78.5,30.5,81.9,29.8,83.9,31.5z">
-<animate  accumulate="none" additive="replace" attributeName="opacity" begin="0.1111111111111111s" calcMode="linear" dur="1s" fill="remove" from="1" repeatCount="indefinite" restart="always" to="0">
-		</animate>
-</path>
-<path class="st1" d="M96.6,53.5L96.6,53.5c0.5,2.6-1.8,5.2-5.1,5.8l-14.2,2.5c-3.3,0.6-6.3-1.1-6.7-3.7l0,0
-	c-0.5-2.6,1.8-5.2,5.1-5.8l14.2-2.5C93.2,49.3,96.2,50.9,96.6,53.5z">
-<animate  accumulate="none" additive="replace" attributeName="opacity" begin="0.2222222222222222s" calcMode="linear" dur="1s" fill="remove" from="1" repeatCount="indefinite" restart="always" to="0">
-		</animate>
-</path>
-<path class="st1" d="M92.2,78.6L92.2,78.6c-1.3,2.3-4.7,2.8-7.6,1.2l-12.5-7.2c-2.9-1.7-4.1-4.9-2.8-7.2l0,0
-	c1.3-2.3,4.7-2.8,7.6-1.2l12.5,7.2C92.3,73.1,93.5,76.3,92.2,78.6z">
-<animate  accumulate="none" additive="replace" attributeName="opacity" begin="0.3333333333333333s" calcMode="linear" dur="1s" fill="remove" from="1" repeatCount="indefinite" restart="always" to="0">
-		</animate>
-</path>
-<path class="st1" d="M72.7,95L72.7,95c-2.5,0.9-5.4-0.9-6.6-4l-4.9-13.5c-1.1-3.1,0-6.4,2.5-7.3l0,0c2.5-0.9,5.4,0.9,6.6,4l4.9,13.5
-	C76.3,90.8,75.2,94,72.7,95z">
-<animate  accumulate="none" additive="replace" attributeName="opacity" begin="0.4444444444444444s" calcMode="linear" dur="1s" fill="remove" from="1" repeatCount="indefinite" restart="always" to="0">
-		</animate>
-</path>
-<path class="st1" d="M47.3,95L47.3,95c-2.5-0.9-3.6-4.2-2.5-7.3l4.9-13.5c1.1-3.1,4.1-4.9,6.6-4l0,0c2.5,0.9,3.6,4.2,2.5,7.3
-	L53.8,91C52.7,94.1,49.8,95.9,47.3,95z">
-<animate  accumulate="none" additive="replace" attributeName="opacity" begin="0.5555555555555556s" calcMode="linear" dur="1s" fill="remove" from="1" repeatCount="indefinite" restart="always" to="0">
-		</animate>
-</path>
-<path class="st1" d="M27.8,78.6L27.8,78.6c-1.3-2.3-0.1-5.5,2.8-7.2l12.5-7.2c2.9-1.7,6.3-1.1,7.6,1.2l0,0c1.3,2.3,0.1,5.5-2.8,7.2
-	l-12.5,7.2C32.5,81.4,29.1,80.9,27.8,78.6z">
-<animate  accumulate="none" additive="replace" attributeName="opacity" begin="0.6666666666666666s" calcMode="linear" dur="1s" fill="remove" from="1" repeatCount="indefinite" restart="always" to="0">
-		</animate>
-</path>
-<path class="st1" d="M23.4,53.5L23.4,53.5c0.5-2.6,3.5-4.3,6.7-3.7l14.2,2.5c3.3,0.6,5.5,3.2,5.1,5.8l0,0c-0.5,2.6-3.5,4.3-6.7,3.7
-	l-14.2-2.5C25.2,58.7,22.9,56.2,23.4,53.5z">
-<animate  accumulate="none" additive="replace" attributeName="opacity" begin="0.7777777777777778s" calcMode="linear" dur="1s" fill="remove" from="1" repeatCount="indefinite" restart="always" to="0">
-		</animate>
-</path>
-<path class="st1" d="M36.1,31.5L36.1,31.5c2-1.7,5.4-1,7.5,1.5l9.3,11c2.1,2.5,2.2,6,0.2,7.7l0,0c-2,1.7-5.4,1-7.5-1.5l-9.3-11
-	C34.1,36.6,34.1,33.2,36.1,31.5z">
-<animate  accumulate="none" additive="replace" attributeName="opacity" begin="0.8888888888888888s" calcMode="linear" dur="1s" fill="remove" from="1" repeatCount="indefinite" restart="always" to="0">
-		</animate>
-</path>
+<svg width='120px' height='120px' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="uil-default">
+  <rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect>
+  <rect x='46' y='39' width='8' height='22' rx='5' ry='5' fill='#6BB57E' transform='rotate(0 50 50) translate(0 -20)'>
+    <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0s' repeatCount='indefinite'/></rect>
+  <rect x='46' y='39' width='8' height='22' rx='5' ry='5' fill='#6BB57E' transform='rotate(40 50 50) translate(0 -20)'>
+    <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.1111111111111111s' repeatCount='indefinite'/></rect>
+  <rect x='46' y='39' width='8' height='22' rx='5' ry='5' fill='#6BB57E' transform='rotate(80 50 50) translate(0 -20)'>
+    <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.2222222222222222s' repeatCount='indefinite'/></rect>
+  <rect x='46' y='39' width='8' height='22' rx='5' ry='5' fill='#6BB57E' transform='rotate(120 50 50) translate(0 -20)'>
+    <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.3333333333333333s' repeatCount='indefinite'/></rect>
+  <rect x='46' y='39' width='8' height='22' rx='5' ry='5' fill='#6BB57E' transform='rotate(160 50 50) translate(0 -20)'>
+    <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.4444444444444444s' repeatCount='indefinite'/></rect>
+  <rect x='46' y='39' width='8' height='22' rx='5' ry='5' fill='#6BB57E' transform='rotate(200 50 50) translate(0 -20)'>
+    <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.5555555555555556s' repeatCount='indefinite'/></rect>
+  <rect x='46' y='39' width='8' height='22' rx='5' ry='5' fill='#6BB57E' transform='rotate(240 50 50) translate(0 -20)'>
+    <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.6666666666666666s' repeatCount='indefinite'/></rect>
+  <rect x='46' y='39' width='8' height='22' rx='5' ry='5' fill='#6BB57E' transform='rotate(280 50 50) translate(0 -20)'>
+    <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.7777777777777778s' repeatCount='indefinite'/></rect>
+  <rect x='46' y='39' width='8' height='22' rx='5' ry='5' fill='#6BB57E' transform='rotate(320 50 50) translate(0 -20)'>
+    <animate attributeName='opacity' from='1' to='0' dur='1s' begin='0.8888888888888888s' repeatCount='indefinite'/></rect>
 </svg>
