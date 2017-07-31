@@ -1,8 +1,8 @@
 const inherits = require('util').inherits
 const Component = require('react').Component
 const h = require('react-hyperscript')
-//const metamaskLogo = require('metamask-logo')
-const debounce = require('debounce')
+// const metamaskLogo = require('metamask-logo')
+// const debounce = require('debounce')
 
 module.exports = Mascot
 
@@ -24,20 +24,20 @@ Mascot.prototype.render = function () {
   // this is a bit hacky
   // the event emitter is on `this.props`
   // and we dont get that until render
-  //this.handleAnimationEvents()
+  // this.handleAnimationEvents()
 
 //  return h('#metamask-mascot-container', {
 //    style: { zIndex: 0 },
 //  })
-    return h('img', {
-      style: {
-        width: '128px',
-        alignItems: 'center',
-        marginTop: 30,
-        marginBottom: 30,
-      },
-      src: 'images/icon-128.png',
-    })
+  return h('img', {
+    style: {
+      width: '128px',
+      alignItems: 'center',
+      marginTop: 30,
+      marginBottom: 30,
+    },
+    src: 'images/icon-128.png',
+  })
 }
 
 Mascot.prototype.componentDidMount = function () {
