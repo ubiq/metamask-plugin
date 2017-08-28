@@ -2,6 +2,49 @@
 
 ## Current Master
 
+## 3.9.11 2017-8-24
+
+- Fix nonce calculation bug that would sometimes generate very wrong nonces.
+- Give up resubmitting a transaction after 3500 blocks.
+
+## 3.9.10 2017-8-23
+
+- Improve nonce calculation, to prevent bug where people are unable to send transactions reliably.
+- Remove link to eth-tx-viz from identicons in tx history.
+
+## 3.9.9 2017-8-18
+
+- Fix bug where some transaction submission errors would show an empty screen.
+- Fix bug that could mis-render token balances when very small.
+- Fix formatting of eth_sign "Sign Message" view.
+- Add deprecation warning to eth_sign "Sign Message" view.
+
+## 3.9.8 2017-8-16
+
+- Reenable token list.
+- Remove default tokens.
+
+## 3.9.7 2017-8-15
+
+- hotfix - disable token list
+- Added a deprecation warning for web3 https://github.com/ethereum/mist/releases/tag/v0.9.0
+
+## 3.9.6 2017-8-09
+
+- Replace account screen with an account drop-down menu.
+- Replace account buttons with a new account-specific drop-down menu.
+
+## 3.9.5 2017-8-04
+
+- Improved phishing detection configuration update rate
+
+## 3.9.4 2017-8-03
+
+- Fixed bug that prevented transactions from being rejected.
+
+## 3.9.3 2017-8-03
+
+- Add support for EGO ujo token
 - Continuously update blacklist for known phishing sites in background.
 - Automatically detect suspicious URLs too similar to common phishing targets, and blacklist them.
 
@@ -75,7 +118,7 @@
 
 ## 3.7.8 2017-6-12
 
-- Add a `ethereum:` prefix to the QR code address
+- Add an `ethereum:` prefix to the QR code address
 - The default network on installation is now MainNet
 - Fix currency API URL from cryptonator.
 - Update gasLimit params with every new block seen.
@@ -231,7 +274,7 @@
 
 - Add ability to import accounts in JSON file format (used by Mist, Geth, MyEtherWallet, and more!)
 - Fix unapproved messages not being included in extension badge.
-- Fix rendering bug where the Confirm transaction view would lets you approve transactions when the account has insufficient balance.
+- Fix rendering bug where the Confirm transaction view would let you approve transactions when the account has insufficient balance.
 
 ## 3.1.2 2017-1-24
 
@@ -254,8 +297,8 @@
 ## 3.0.0 2017-1-16
 
 - Fix seed word account generation (https://medium.com/metamask/metamask-3-migration-guide-914b79533cdd#.t4i1qmmsz).
-- Fix Bug where you see a empty transaction flash by on the confirm transaction view.
-- Create visible difference in transaction history between a approved but not yet included in a block transaction and a transaction who has been confirmed.
+- Fix Bug where you see an empty transaction flash by on the confirm transaction view.
+- Create visible difference in transaction history between an approved but not yet included in a block transaction and a transaction who has been confirmed.
 - Fix memory leak in RPC Cache
 - Override RPC commands eth_syncing and web3_clientVersion
 - Remove certain non-essential permissions from certain builds.
@@ -310,7 +353,7 @@
 
 - Fix bug where gas estimate would sometimes be very high.
 - Increased our gas estimate from 100k gas to 20% of estimate.
-- Fix github link on info page to point at current repository.
+- Fix GitHub link on info page to point at current repository.
 
 ## 2.13.6 2016-10-26
 
@@ -386,7 +429,7 @@ popup notification opens up.
 - Block negative values from transactions.
 - Fixed a memory leak.
 - MetaMask logo now renders as super lightweight SVG, improving compatibility and performance.
-- Now showing loading indication during vault unlocking, to clarify behavior for users who are experience slow unlocks.
+- Now showing loading indication during vault unlocking, to clarify behavior for users who are experiencing slow unlocks.
 - Now only initially creates one wallet when restoring a vault, to reduce some users' confusion.
 
 ## 2.10.2 2016-09-02
@@ -418,7 +461,7 @@ popup notification opens up.
 - Added info link on account screen that visits Etherscan.
 - Fixed bug where a message signing request would be lost if the vault was locked.
 - Added shortcut to open MetaMask (Ctrl+Alt+M or Cmd+Opt/Alt+M)
-- Prevent API calls in  tests.
+- Prevent API calls in tests.
 - Fixed bug where sign message confirmation would sometimes render blank.
 
 ## 2.9.0 2016-08-22

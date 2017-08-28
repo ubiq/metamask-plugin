@@ -6,7 +6,7 @@ const EthBalance = require('./eth-balance')
 const addressSummary = require('../util').addressSummary
 const explorerLink = require('../../lib/explorer-link')
 const CopyButton = require('./copyButton')
-const vreme = new (require('vreme'))
+const vreme = new (require('vreme'))()
 const Tooltip = require('./tooltip')
 const numberToBN = require('number-to-bn')
 
@@ -60,16 +60,7 @@ TransactionListItem.prototype.render = function () {
     }, [
 
       h('.identicon-wrapper.flex-column.flex-center.select-none', [
-        h('.pop-hover', {
-          onClick: (event) => {
-            event.stopPropagation()
-            if (!isTx || isPending) return
-            var url = `https://metamask.github.io/eth-tx-viz/?tx=${transaction.hash}`
-            global.platform.openWindow({ url })
-          },
-        }, [
-          h(TransactionIcon, { txParams, transaction, isTx, isMsg }),
-        ]),
+        h(TransactionIcon, { txParams, transaction, isTx, isMsg }),
       ]),
 
       h(Tooltip, {
@@ -155,12 +146,21 @@ function failIfFailed (transaction) {
   if (transaction.status === 'rejected') {
     return h('span.error', ' (Rejected)')
   }
-  if (transaction.err) {
+  if (transaction.err || transaction.warning) {
+    const { err, warning = {} } = transaction
+    const errFirst = !!(( err && warning ) || err)
+    const message = errFirst ? err.message : warning.message
+
+    errFirst ? err.message : warning.message
+
+
     return h(Tooltip, {
-      title: transaction.err.message,
+      title: message,
       position: 'bottom',
     }, [
-      h('span.error', ' (Failed)'),
+      h(`span.${errFirst ? 'error' : 'warning'}`,
+        ` (${errFirst ? 'Failed' : 'Warning'})`
+      ),
     ])
   }
 }

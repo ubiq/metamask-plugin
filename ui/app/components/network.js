@@ -39,7 +39,6 @@ Network.prototype.render = function () {
       }),
       h('i.fa.fa-sort-desc'),
     ])
-
   } else if (providerName === 'mainnet') {
     hoverText = 'Ubiq Network'
     iconName = 'ethereum-network'
