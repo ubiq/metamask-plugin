@@ -1,12 +1,15 @@
-const LocalMessageDuplexStream = require('post-message-stream')
-const PongStream = require('ping-pong-stream/pong')
-const PortStream = require('./lib/port-stream.js')
-const ObjectMultiplex = require('./lib/obj-multiplex')
-const extension = require('extensionizer')
-
 const fs = require('fs')
 const path = require('path')
-const inpageText = fs.readFileSync(path.join(__dirname, 'inpage.js')).toString()
+const pump = require('pump')
+const LocalMessageDuplexStream = require('post-message-stream')
+const PongStream = require('ping-pong-stream/pong')
+const ObjectMultiplex = require('obj-multiplex')
+const extension = require('extensionizer')
+const PortStream = require('./lib/port-stream.js')
+
+const inpageContent = fs.readFileSync(path.join(__dirname, '..', '..', 'dist', 'chrome', 'scripts', 'inpage.js')).toString()
+const inpageSuffix = '//# sourceURL=' + extension.extension.getURL('scripts/inpage.js') + '\n'
+const inpageBundle = inpageContent + inpageSuffix
 
 // Eventually this streaming injection could be replaced with:
 // https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Language_Bindings/Components.utils.exportFunction
@@ -24,8 +27,7 @@ function setupInjection () {
   try {
     // inject in-page script
     var scriptTag = document.createElement('script')
-    scriptTag.src = extension.extension.getURL('scripts/inpage.js')
-    scriptTag.textContent = inpageText
+    scriptTag.textContent = inpageBundle
     scriptTag.onload = function () { this.parentNode.removeChild(this) }
     var container = document.head || document.documentElement
     // append as first child
@@ -41,31 +43,56 @@ function setupStreams () {
     name: 'contentscript',
     target: 'inpage',
   })
-  pageStream.on('error', console.error)
   const pluginPort = extension.runtime.connect({ name: 'contentscript' })
   const pluginStream = new PortStream(pluginPort)
-  pluginStream.on('error', console.error)
 
   // forward communication plugin->inpage
-  pageStream.pipe(pluginStream).pipe(pageStream)
+  pump(
+    pageStream,
+    pluginStream,
+    pageStream,
+    (err) => logStreamDisconnectWarning('MetaMask Contentscript Forwarding', err)
+  )
 
   // setup local multistream channels
-  const mx = ObjectMultiplex()
-  mx.on('error', console.error)
-  mx.pipe(pageStream).pipe(mx)
-  mx.pipe(pluginStream).pipe(mx)
+  const mux = new ObjectMultiplex()
+  mux.setMaxListeners(25)
+
+  pump(
+    mux,
+    pageStream,
+    mux,
+    (err) => logStreamDisconnectWarning('MetaMask Inpage', err)
+  )
+  pump(
+    mux,
+    pluginStream,
+    mux,
+    (err) => logStreamDisconnectWarning('MetaMask Background', err)
+  )
 
   // connect ping stream
   const pongStream = new PongStream({ objectMode: true })
-  pongStream.pipe(mx.createStream('pingpong')).pipe(pongStream)
+  pump(
+    mux,
+    pongStream,
+    mux,
+    (err) => logStreamDisconnectWarning('MetaMask PingPongStream', err)
+  )
 
   // connect phishing warning stream
-  const phishingStream = mx.createStream('phishing')
+  const phishingStream = mux.createStream('phishing')
   phishingStream.once('data', redirectToPhishingWarning)
 
   // ignore unused channels (handled by background, inpage)
-  mx.ignoreStream('provider')
-  mx.ignoreStream('publicConfig')
+  mux.ignoreStream('provider')
+  mux.ignoreStream('publicConfig')
+}
+
+function logStreamDisconnectWarning (remoteLabel, err) {
+  let warningMsg = `MetamaskContentscript - lost connection to ${remoteLabel}`
+  if (err) warningMsg += '\n' + err.stack
+  console.warn(warningMsg)
 }
 
 function shouldInjectWeb3 () {

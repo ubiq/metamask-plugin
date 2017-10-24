@@ -2,6 +2,94 @@
 
 ## Current Master
 
+- Add support for alternative ENS TLDs (Ethereum Name Service Top-Level Domains).
+
+## 3.11.2 2017-10-21
+
+- Fix bug where reject button would sometimes not work.
+- Fixed bug where sometimes MetaMask's connection to a page would be unreliable.
+
+## 3.11.1 2017-10-20
+
+- Fix bug where log filters were not populated correctly
+- Fix bug where web3 API was sometimes injected after the page loaded.
+- Fix bug where first account was sometimes not selected correctly after creating or restoring a vault.
+- Fix bug where imported accounts could not use new eth_signTypedData method.
+
+## 3.11.0 2017-10-11
+
+- Add support for new eth_signTypedData method per EIP 712.
+- Fix bug where some transactions would be shown as pending forever, even after successfully mined.
+- Fix bug where a transaction might be shown as pending forever if another tx with the same nonce was mined.
+- Fix link to support article on token addresses.
+
+## 3.10.9 2017-10-5
+
+- Only rebrodcast transactions for a day not a days worth of blocks
+- Remove Slack link from info page, since it is a big phishing target.
+- Stop computing balance based on pending transactions, to avoid edge case where users are unable to send transactions.
+
+## 3.10.8 2017-9-28
+
+- Fixed usage of new currency fetching API.
+
+## 3.10.7 2017-9-28
+
+- Fixed bug where sometimes the current account was not correctly set and exposed to web apps.
+- Added AUD, HKD, SGD, IDR, PHP to currency conversion list
+
+## 3.10.6 2017-9-27
+
+- Fix bug where newly created accounts were not selected.
+- Fix bug where selected account was not persisted between lockings.
+
+## 3.10.5 2017-9-27
+
+- Fix block gas limit estimation.
+
+## 3.10.4 2017-9-27
+
+- Fix bug that could mis-render token balances when very small. (Not actually included in 3.9.9)
+- Fix memory leak warning.
+- Fix bug where new event filters would not include historical events.
+
+## 3.10.3 2017-9-21
+
+- Fix bug where metamask-dapp connections are lost on rpc error
+- Fix bug that would sometimes display transactions as failed that could be successfully mined.
+
+## 3.10.2 2017-9-18
+
+rollback to 3.10.0 due to bug
+
+## 3.10.1 2017-9-18
+
+- Add ability to export private keys as a file.
+- Add ability to export seed words as a file.
+- Changed state logs to a file download than a clipboard copy.
+- Add specific error for failed recipient address checksum.
+- Fixed a long standing memory leak associated with filters installed by dapps
+- Fix link to support center.
+- Fixed tooltip icon locations to avoid overflow.
+- Warn users when a dapp proposes a high gas limit (90% of blockGasLimit or higher
+- Sort currencies by currency name (thanks to strelok1: https://github.com/strelok1).
+
+## 3.10.0 2017-9-11
+
+- Readded loose keyring label back into the account list.
+- Remove cryptonator from chrome permissions.
+- Add info on token contract addresses.
+- Add validation preventing users from inputting their own addresses as token tracking addresses.
+- Added button to reject all transactions (thanks to davidp94! https://github.com/davidp94)
+
+
+## 3.9.13 2017-9-8
+
+- Changed the way we initialize the inpage provider to fix a bug affecting some developers.
+
+## 3.9.12 2017-9-6
+
+- Fix bug that prevented Web3 1.0 compatibility
 - Make eth_sign deprecation warning less noisy
 - Add useful link to eth_sign deprecation warning.
 - Fix bug with network version serialization over synchronous RPC

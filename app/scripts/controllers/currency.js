@@ -8,7 +8,7 @@ class CurrencyController {
 
   constructor (opts = {}) {
     const initState = extend({
-      currentCurrency: 'USD',
+      currentCurrency: 'usd',
       conversionRate: 0,
       conversionDate: 'N/A',
     }, opts.initState)

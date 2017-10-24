@@ -103,7 +103,7 @@ InfoScreen.prototype.render = function () {
             [
               h('div.fa.fa-support', [
                 h('a.info', {
-                  href: 'https://support.metamask.com',
+                  href: 'https://support.metamask.io',
                   target: '_blank',
                 }, 'Visit our Support Center'),
               ]),
@@ -124,13 +124,6 @@ InfoScreen.prototype.render = function () {
                   }),
                   h('div.info', 'Visit our web site'),
                 ]),
-              ]),
-
-              h('div.fa.fa-slack', [
-                h('a.info', {
-                  href: 'http://slack.metamask.io',
-                  target: '_blank',
-                }, 'Join the conversation on Slack'),
               ]),
 
               h('div', [

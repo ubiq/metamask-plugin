@@ -97,6 +97,8 @@ var actions = {
   cancelMsg: cancelMsg,
   signPersonalMsg,
   cancelPersonalMsg,
+  signTypedMsg,
+  cancelTypedMsg,
   signTx: signTx,
   updateAndApproveTx,
   cancelTx: cancelTx,
@@ -104,6 +106,7 @@ var actions = {
   txError: txError,
   nextTx: nextTx,
   previousTx: previousTx,
+  cancelAllTx: cancelAllTx,
   viewPendingTx: viewPendingTx,
   VIEW_PENDING_TX: 'VIEW_PENDING_TX',
   // app messages
@@ -118,14 +121,11 @@ var actions = {
   SET_RPC_TARGET: 'SET_RPC_TARGET',
   SET_DEFAULT_RPC_TARGET: 'SET_DEFAULT_RPC_TARGET',
   SET_PROVIDER_TYPE: 'SET_PROVIDER_TYPE',
-  USE_ETHERSCAN_PROVIDER: 'USE_ETHERSCAN_PROVIDER',
-  useEtherscanProvider: useEtherscanProvider,
   showConfigPage,
   SHOW_ADD_TOKEN_PAGE: 'SHOW_ADD_TOKEN_PAGE',
   showAddTokenPage,
   addToken,
   setRpcTarget: setRpcTarget,
-  setDefaultRpcTarget: setDefaultRpcTarget,
   setProviderType: setProviderType,
   // loading overlay
   SHOW_LOADING: 'SHOW_LOADING_INDICATION',
@@ -394,6 +394,25 @@ function signPersonalMsg (msgData) {
   }
 }
 
+function signTypedMsg (msgData) {
+  log.debug('action - signTypedMsg')
+  return (dispatch) => {
+    dispatch(actions.showLoadingIndication())
+
+    log.debug(`actions calling background.signTypedMessage`)
+    background.signTypedMessage(msgData, (err, newState) => {
+      log.debug('signTypedMessage called back')
+      dispatch(actions.updateMetamaskState(newState))
+      dispatch(actions.hideLoadingIndication())
+
+      if (err) log.error(err)
+      if (err) return dispatch(actions.displayWarning(err.message))
+
+      dispatch(actions.completedTx(msgData.metamaskId))
+    })
+  }
+}
+
 function signTx (txData) {
   return (dispatch) => {
     dispatch(actions.showLoadingIndication())
@@ -448,6 +467,12 @@ function cancelPersonalMsg (msgData) {
   return actions.completedTx(id)
 }
 
+function cancelTypedMsg (msgData) {
+  const id = msgData.id
+  background.cancelTypedMessage(id)
+  return actions.completedTx(id)
+}
+
 function cancelTx (txData) {
   return (dispatch) => {
     log.debug(`background.cancelTransaction`)
@@ -457,6 +482,16 @@ function cancelTx (txData) {
   }
 }
 
+function cancelAllTx (txsData) {
+  return (dispatch) => {
+    txsData.forEach((txData, i) => {
+      background.cancelTransaction(txData.id, () => {
+        dispatch(actions.completedTx(txData.id))
+        i === txsData.length - 1 ? dispatch(actions.goHome()) : null
+      })
+    })
+  }
+}
 //
 // initialize screen
 //
@@ -695,16 +730,19 @@ function markAccountsFound () {
 // config
 //
 
-// default rpc target refers to localhost:8588 in this instance.
-function setDefaultRpcTarget () {
-  log.debug(`background.setDefaultRpcTarget`)
+function setProviderType (type) {
   return (dispatch) => {
-    background.setDefaultRpc((err, result) => {
+    log.debug(`background.setProviderType`)
+    background.setProviderType(type, (err, result) => {
       if (err) {
         log.error(err)
-        return dispatch(self.displayWarning('Had a problem changing networks.'))
+        return dispatch(self.displayWarning('Had a problem changing networks!'))
       }
     })
+    return {
+      type: actions.SET_PROVIDER_TYPE,
+      value: type,
+    }
   }
 }
 
@@ -730,23 +768,6 @@ function addToAddressBook (recipient, nickname) {
         return dispatch(self.displayWarning('Address book failed to update'))
       }
     })
-  }
-}
-
-function setProviderType (type) {
-  log.debug(`background.setProviderType`)
-  background.setProviderType(type)
-  return {
-    type: actions.SET_PROVIDER_TYPE,
-    value: type,
-  }
-}
-
-function useEtherscanProvider () {
-  log.debug(`background.useEtherscanProvider`)
-  background.useEtherscanProvider()
-  return {
-    type: actions.USE_ETHERSCAN_PROVIDER,
   }
 }
 

@@ -10,6 +10,7 @@ const isPopupOrNotification = require('../../app/scripts/lib/is-popup-or-notific
 const PendingTx = require('./components/pending-tx')
 const PendingMsg = require('./components/pending-msg')
 const PendingPersonalMsg = require('./components/pending-personal-msg')
+const PendingTypedMsg = require('./components/pending-typed-msg')
 const Loading = require('./components/loading')
 
 module.exports = connect(mapStateToProps)(ConfirmTxScreen)
@@ -22,6 +23,7 @@ function mapStateToProps (state) {
     unapprovedTxs: state.metamask.unapprovedTxs,
     unapprovedMsgs: state.metamask.unapprovedMsgs,
     unapprovedPersonalMsgs: state.metamask.unapprovedPersonalMsgs,
+    unapprovedTypedMessages: state.metamask.unapprovedTypedMessages,
     index: state.appState.currentView.context,
     warning: state.appState.warning,
     network: state.metamask.network,
@@ -29,6 +31,7 @@ function mapStateToProps (state) {
     conversionRate: state.metamask.conversionRate,
     currentCurrency: state.metamask.currentCurrency,
     blockGasLimit: state.metamask.currentBlockGasLimit,
+    computedBalances: state.metamask.computedBalances,
   }
 }
 
@@ -39,18 +42,19 @@ function ConfirmTxScreen () {
 
 ConfirmTxScreen.prototype.render = function () {
   const props = this.props
-  const { network, provider, unapprovedTxs, currentCurrency,
-    unapprovedMsgs, unapprovedPersonalMsgs, conversionRate, blockGasLimit } = props
+  const { network, provider, unapprovedTxs, currentCurrency, computedBalances,
+    unapprovedMsgs, unapprovedPersonalMsgs, unapprovedTypedMessages, conversionRate, blockGasLimit } = props
 
-  var unconfTxList = txHelper(unapprovedTxs, unapprovedMsgs, unapprovedPersonalMsgs, network)
+  var unconfTxList = txHelper(unapprovedTxs, unapprovedMsgs, unapprovedPersonalMsgs, unapprovedTypedMessages, network)
 
   var txData = unconfTxList[props.index] || {}
   var txParams = txData.params || {}
   var isNotification = isPopupOrNotification() === 'notification'
 
-
   log.info(`rendering a combined ${unconfTxList.length} unconf msg & txs`)
   if (unconfTxList.length === 0) return h(Loading, { isLoading: true })
+
+  const unconfTxListLength = unconfTxList.length
 
   return (
 
@@ -101,14 +105,19 @@ ConfirmTxScreen.prototype.render = function () {
         conversionRate,
         currentCurrency,
         blockGasLimit,
+        unconfTxListLength,
+        computedBalances,
         // Actions
         buyEth: this.buyEth.bind(this, txParams.from || props.selectedAddress),
         sendTransaction: this.sendTransaction.bind(this),
         cancelTransaction: this.cancelTransaction.bind(this, txData),
+        cancelAllTransactions: this.cancelAllTransactions.bind(this, unconfTxList),
         signMessage: this.signMessage.bind(this, txData),
         signPersonalMessage: this.signPersonalMessage.bind(this, txData),
+        signTypedMessage: this.signTypedMessage.bind(this, txData),
         cancelMessage: this.cancelMessage.bind(this, txData),
         cancelPersonalMessage: this.cancelPersonalMessage.bind(this, txData),
+        cancelTypedMessage: this.cancelTypedMessage.bind(this, txData),
       }),
     ])
   )
@@ -131,6 +140,9 @@ function currentTxView (opts) {
     } else if (type === 'personal_sign') {
       log.debug('rendering personal_sign message')
       return h(PendingPersonalMsg, opts)
+    } else if (type === 'eth_signTypedData') {
+      log.debug('rendering eth_signTypedData message')
+      return h(PendingTypedMsg, opts)
     }
   }
 }
@@ -149,6 +161,12 @@ ConfirmTxScreen.prototype.cancelTransaction = function (txData, event) {
   this.stopPropagation(event)
   event.preventDefault()
   this.props.dispatch(actions.cancelTx(txData))
+}
+
+ConfirmTxScreen.prototype.cancelAllTransactions = function (unconfTxList, event) {
+  this.stopPropagation(event)
+  event.preventDefault()
+  this.props.dispatch(actions.cancelAllTx(unconfTxList))
 }
 
 ConfirmTxScreen.prototype.signMessage = function (msgData, event) {
@@ -173,6 +191,14 @@ ConfirmTxScreen.prototype.signPersonalMessage = function (msgData, event) {
   this.props.dispatch(actions.signPersonalMsg(params))
 }
 
+ConfirmTxScreen.prototype.signTypedMessage = function (msgData, event) {
+  log.info('conf-tx.js: signing typed message')
+  var params = msgData.msgParams
+  params.metamaskId = msgData.id
+  this.stopPropagation(event)
+  this.props.dispatch(actions.signTypedMsg(params))
+}
+
 ConfirmTxScreen.prototype.cancelMessage = function (msgData, event) {
   log.info('canceling message')
   this.stopPropagation(event)
@@ -183,6 +209,12 @@ ConfirmTxScreen.prototype.cancelPersonalMessage = function (msgData, event) {
   log.info('canceling personal message')
   this.stopPropagation(event)
   this.props.dispatch(actions.cancelPersonalMsg(msgData))
+}
+
+ConfirmTxScreen.prototype.cancelTypedMessage = function (msgData, event) {
+  log.info('canceling typed message')
+  this.stopPropagation(event)
+  this.props.dispatch(actions.cancelTypedMsg(msgData))
 }
 
 ConfirmTxScreen.prototype.goHome = function (event) {

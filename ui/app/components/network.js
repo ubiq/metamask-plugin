@@ -22,7 +22,7 @@ Network.prototype.render = function () {
   let iconName, hoverText
 
   if (networkNumber === 'loading') {
-    return h('span', {
+    return h('span.pointer', {
       style: {
         display: 'flex',
         alignItems: 'center',
@@ -37,7 +37,7 @@ Network.prototype.render = function () {
         },
         src: 'images/loading.svg',
       }),
-      h('i.fa.fa-sort-desc'),
+      h('i.fa.fa-caret-down'),
     ])
   } else if (providerName === 'mainnet') {
     hoverText = 'Ubiq Network'
@@ -65,6 +65,7 @@ Network.prototype.render = function () {
                   color: '#039396',
                 }},
               'Ubiq Net'),
+              h('i.fa.fa-caret-down.fa-lg'),
             ])
           case 'rinkeby-test-network':
             return h('.network-indicator', [
@@ -74,6 +75,7 @@ Network.prototype.render = function () {
                   color: '#e7a218',
                 }},
               'Test Net'),
+              h('i.fa.fa-caret-down.fa-lg'),
             ])
           default:
             return h('.network-indicator', [
@@ -89,6 +91,7 @@ Network.prototype.render = function () {
                   color: '#AEAEAE',
                 }},
               'Private Network'),
+              h('i.fa.fa-caret-down.fa-lg'),
             ])
         }
       })(),

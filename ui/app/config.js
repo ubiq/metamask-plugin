@@ -3,9 +3,12 @@ const Component = require('react').Component
 const h = require('react-hyperscript')
 const connect = require('react-redux').connect
 const actions = require('./actions')
-const currencies = require('./conversion.json').rows
+const infuraCurrencies = require('./infura-conversion.json').objects.sort((a, b) => {
+      return a.quote.name.toLocaleLowerCase().localeCompare(b.quote.name.toLocaleLowerCase())
+    })
 const validUrl = require('valid-url')
-const copyToClipboard = require('copy-to-clipboard')
+const exportAsFile = require('./util').exportAsFile
+
 
 module.exports = connect(mapStateToProps)(ConfigScreen)
 
@@ -110,9 +113,9 @@ ConfigScreen.prototype.render = function () {
                 alignSelf: 'center',
               },
               onClick (event) {
-                copyToClipboard(window.logState())
+                exportAsFile('MetaMask State Logs', window.logState())
               },
-            }, 'Copy State Logs'),
+            }, 'Download State Logs'),
           ]),
 
           h('hr.horizontal-line'),
@@ -166,8 +169,8 @@ function currentConversionInformation (metamaskState, state) {
         state.dispatch(actions.setCurrentCurrency(newCurrency))
       },
       defaultValue: currentCurrency,
-    }, currencies.map((currency) => {
-      return h('option', {key: currency.code, value: currency.code}, `${currency.code} - ${currency.name}`)
+    }, infuraCurrencies.map((currency) => {
+      return h('option', {key: currency.quote.code, value: currency.quote.code}, `${currency.quote.code.toUpperCase()} - ${currency.quote.name}`)
     })
   ),
   ])

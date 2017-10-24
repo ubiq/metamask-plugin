@@ -1,7 +1,7 @@
 {
   "name": "Sparrow",
   "short_name": "Sparrow",
-  "version": "3.9.11",
+  "version": "3.11.2",
   "manifest_version": 2,
   "author": "https://sparrow.ubiqsmart.com",
   "description": "Ubiq Browser Extension",
@@ -58,8 +58,8 @@
     "storage",
     "clipboardWrite",
     "http://localhost:8588/",
-    "https://api.cryptonator.com/"
-  ],
+    "https://api.cryptonator.com/"    
+    ],
   "web_accessible_resources": [
     "scripts/inpage.js"
   ],

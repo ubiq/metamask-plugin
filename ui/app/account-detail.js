@@ -32,6 +32,7 @@ function mapStateToProps (state) {
     currentCurrency: state.metamask.currentCurrency,
     currentAccountTab: state.metamask.currentAccountTab,
     tokens: state.metamask.tokens,
+    computedBalances: state.metamask.computedBalances,
   }
 }
 
@@ -120,6 +121,7 @@ AccountDetailScreen.prototype.render = function () {
                           overflow: 'hidden',
                           textOverflow: 'ellipsis',
                           padding: '5px 0px',
+                          lineHeight: '25px',
                         },
                       }, [
                         identity && identity.name,
