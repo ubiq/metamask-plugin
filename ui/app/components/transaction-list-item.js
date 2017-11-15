@@ -4,7 +4,7 @@ const inherits = require('util').inherits
 
 const EthBalance = require('./eth-balance')
 const addressSummary = require('../util').addressSummary
-const explorerLink = require('etherscan-link').createExplorerLink
+const explorerLink = require('../../lib/ubiqscan-link').createExplorerLink
 const CopyButton = require('./copyButton')
 const vreme = new (require('vreme'))()
 const Tooltip = require('./tooltip')
