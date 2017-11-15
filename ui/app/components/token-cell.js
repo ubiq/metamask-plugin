@@ -2,7 +2,7 @@ const Component = require('react').Component
 const h = require('react-hyperscript')
 const inherits = require('util').inherits
 const Identicon = require('./identicon')
-const prefixForNetwork = require('../../lib/etherscan-prefix-for-network')
+const explorerLink = require('../../lib/ubiqscan-link').createTokenLink
 
 module.exports = TokenCell
 
@@ -51,7 +51,7 @@ TokenCell.prototype.send = function (address, event) {
 }
 
 TokenCell.prototype.view = function (address, userAddress, network, event) {
-  const url = etherscanLinkFor(address, userAddress, network)
+  const url = tokenLink(address, network);
   if (url) {
     navigateTo(url)
   }
@@ -59,11 +59,6 @@ TokenCell.prototype.view = function (address, userAddress, network, event) {
 
 function navigateTo (url) {
   global.platform.openWindow({ url })
-}
-
-function etherscanLinkFor (tokenAddress, address, network) {
-  const prefix = prefixForNetwork(network)
-  return `https://${prefix}ubiqscan.io/en/token/${tokenAddress}`
 }
 
 function tokenFactoryFor (tokenAddress) {
