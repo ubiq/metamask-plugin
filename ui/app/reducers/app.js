@@ -122,6 +122,7 @@ function reduceApp (state, action) {
           name: 'import-menu',
         },
         transForward: true,
+        warning: null,
       })
 
     case actions.SHOW_INFO_PAGE:
@@ -492,6 +493,16 @@ function reduceApp (state, action) {
             shapeshift: false,
           },
         },
+      })
+
+    case actions.ONBOARDING_BUY_ETH_VIEW:
+      return extend(appState, {
+        transForward: true,
+        currentView: {
+          name: 'onboardingBuyEth',
+          context: appState.currentView.name,
+        },
+        identity: state.metamask.identities[action.value],
       })
 
     case actions.COINBASE_SUBVIEW:

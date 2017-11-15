@@ -1,4 +1,4 @@
-const MAINET_RPC_URL = 'https://mainnet.infura.io/metamask'
+const MAINET_RPC_URL = 'https://rpc1.ubiqscan.io'
 const TESTNET_RPC_URL = 'https://testrpc1.ubiqscan.io'
 const LOCALHOST_RPC_URL = 'http://localhost:8588'
 
@@ -11,8 +11,7 @@ module.exports = {
     testnet: TESTNET_RPC_URL,
   },
   networkNames: {
-    3: 'Ropsten',
-    4: 'Rinkeby',
-    42: 'Kovan',
+    88: 'Ubiq Net',
+    9: 'Test Net',
   },
 }

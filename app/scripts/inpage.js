@@ -3,6 +3,7 @@
 if (typeof global.web3 === 'undefined') {
   cleanContextForImports()
   require('web3/dist/web3.min.js')
+  const log = require('loglevel')
   const LocalMessageDuplexStream = require('post-message-stream')
   // const PingStream = require('ping-pong-stream/ping')
   // const endOfStream = require('end-of-stream')
@@ -10,6 +11,14 @@ if (typeof global.web3 === 'undefined') {
   const MetamaskInpageProvider = require('./lib/inpage-provider.js')
   restoreContextAfterImports()
 
+  const METAMASK_DEBUG = 'GULP_METAMASK_DEBUG'
+  window.log = log
+  log.setDefaultLevel(METAMASK_DEBUG ? 'debug' : 'warn')
+
+
+  //
+  // setup plugin communication
+  //
 
   //
   // setup plugin communication
@@ -24,9 +33,13 @@ if (typeof global.web3 === 'undefined') {
   // compose the inpage provider
   var inpageProvider = new MetamaskInpageProvider(metamaskStream)
 
-  //
-  // setup web3
-  //
+  var web3 = new Web3(inpageProvider)
+  web3.setProvider = function () {
+    log.debug('MetaMask - overrode web3.setProvider')
+  }
+  log.debug('MetaMask - injected web3')
+  // export global web3, with usage-detection
+  setupDappAutoReload(web3, inpageProvider.publicConfigStore)
 
   var web3 = new Web3(inpageProvider)
   web3.setProvider = function () {
