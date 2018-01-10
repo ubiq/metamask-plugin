@@ -261,7 +261,7 @@ function copyTask(opts){
 function zipTask(target) {
   return () => {
     return gulp.src(`dist/${target}/**`)
-    .pipe(zip(`metamask-${target}-${manifest.version}.zip`))
+    .pipe(zip(`sparrow-${target}-${manifest.version}.zip`))
     .pipe(gulp.dest('builds'));
   }
 }
