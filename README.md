@@ -1,13 +1,6 @@
-# Sparrow Plugin [![Build Status](https://circleci.com/gh/MetaMask/metamask-extension.svg?style=shield&circle-token=a1ddcf3cd38e29267f254c9c59d556d513e3a1fd)](https://circleci.com/gh/MetaMask/metamask-extension)
+# Sparrow Plugin
 
-Based on the great source code [produced by MetaMask guys](https://github.com/MetaMask).
-
-## Developing Compatible Dapps
-
-If you're a web dapp developer, we've got two types of guides for you:
-
-- If you've never built a Dapp before, we've got a gentle introduction on [Developing Dapps with Truffle and MetaMask](https://blog.metamask.io/developing-for-metamask-with-truffle/).
-- If you have a Dapp, and you want to ensure compatibility, [here is our guide on building MetaMask-compatible Dapps](https://github.com/MetaMask/faq/blob/master/DEVELOPERS.md)
+[MetaMask's](https://github.com/MetaMask) brother built for [Ubiq](https://ubiqsmart.com) instead of Ethereum.
 
 ## Building locally
 
@@ -29,10 +22,6 @@ Then just run `npm test`.
 You can also test with a continuously watching process, via `npm run watch`.
 
 You can run the linter by itself with `gulp lint`.
-
-## Architecture
-
-[![Architecture Diagram](./docs/architecture.png)][1]
 
 ## Development
 

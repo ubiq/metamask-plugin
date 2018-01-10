@@ -206,6 +206,7 @@ describe('PendingTransactionTracker', function () {
   })
 
   describe('#resubmitPendingTxs', function () {
+    const blockStub = { number: '0x0' };
     beforeEach(function () {
     const txMeta2 = txMeta3 = txMeta
     txList = [txMeta, txMeta2, txMeta3].map((tx) => {
@@ -223,7 +224,7 @@ describe('PendingTransactionTracker', function () {
       Promise.all(txList.map((tx) => tx.processed))
       .then((txCompletedList) => done())
       .catch(done)
-      pendingTxTracker.resubmitPendingTxs()
+      pendingTxTracker.resubmitPendingTxs(blockStub)
     })
     it('should not emit \'tx:failed\' if the txMeta throws a known txError', function (done) {
       knownErrors =[
@@ -250,7 +251,7 @@ describe('PendingTransactionTracker', function () {
       .then((txCompletedList) => done())
       .catch(done)
 
-      pendingTxTracker.resubmitPendingTxs()
+      pendingTxTracker.resubmitPendingTxs(blockStub)
     })
     it('should emit \'tx:warning\' if it encountered a real error', function (done) {
       pendingTxTracker.once('tx:warning', (txMeta, err) => {
@@ -268,28 +269,133 @@ describe('PendingTransactionTracker', function () {
       .then((txCompletedList) => done())
       .catch(done)
 
-      pendingTxTracker.resubmitPendingTxs()
+      pendingTxTracker.resubmitPendingTxs(blockStub)
     })
   })
   describe('#_resubmitTx', function () {
-    it('should publishing the transaction', function (done) {
-    const enoughBalance = '0x100000'
-    pendingTxTracker.getBalance = (address) => {
-      assert.equal(address, txMeta.txParams.from, 'Should pass the address')
-      return enoughBalance
-    }
-    pendingTxTracker.publishTransaction = async (rawTx) => {
-      assert.equal(rawTx, txMeta.rawTx, 'Should pass the rawTx')
-    }
+    const mockFirstRetryBlockNumber = '0x1'
+    let txMetaToTestExponentialBackoff
 
-    // Stubbing out current account state:
-    // Adding the fake tx:
-    pendingTxTracker._resubmitTx(txMeta)
-    .then(() => done())
-    .catch((err) => {
-     assert.ifError(err, 'should not throw an error')
-     done(err)
+    beforeEach(() => {
+      pendingTxTracker.getBalance = (address) => {
+        assert.equal(address, txMeta.txParams.from, 'Should pass the address')
+        return enoughBalance
+      }
+      pendingTxTracker.publishTransaction = async (rawTx) => {
+        assert.equal(rawTx, txMeta.rawTx, 'Should pass the rawTx')
+      }
+      sinon.spy(pendingTxTracker, 'publishTransaction')
+
+      txMetaToTestExponentialBackoff = Object.assign({}, txMeta, {
+        retryCount: 4,
+        firstRetryBlockNumber: mockFirstRetryBlockNumber,
+      })
+    })
+
+    afterEach(() => {
+      pendingTxTracker.publishTransaction.reset()
+    })
+
+    it('should publish the transaction', function (done) {
+      const enoughBalance = '0x100000'
+
+      // Stubbing out current account state:
+      // Adding the fake tx:
+      pendingTxTracker._resubmitTx(txMeta)
+      .then(() => done())
+      .catch((err) => {
+       assert.ifError(err, 'should not throw an error')
+       done(err)
+      })
+
+      assert.equal(pendingTxTracker.publishTransaction.callCount, 1, 'Should call publish transaction')
+    })
+
+    it('should not publish the transaction if the limit of retries has been exceeded', function (done) {
+      const enoughBalance = '0x100000'
+      const mockLatestBlockNumber = '0x5'
+
+      pendingTxTracker._resubmitTx(txMetaToTestExponentialBackoff, mockLatestBlockNumber)
+      .then(() => done())
+      .catch((err) => {
+       assert.ifError(err, 'should not throw an error')
+       done(err)
+      })
+
+      assert.equal(pendingTxTracker.publishTransaction.callCount, 0, 'Should NOT call publish transaction')
+    })
+
+    it('should publish the transaction if the number of blocks since last retry exceeds the last set limit', function (done) {
+      const enoughBalance = '0x100000'
+      const mockLatestBlockNumber = '0x11'
+
+      pendingTxTracker._resubmitTx(txMetaToTestExponentialBackoff, mockLatestBlockNumber)
+      .then(() => done())
+      .catch((err) => {
+       assert.ifError(err, 'should not throw an error')
+       done(err)
+      })
+
+      assert.equal(pendingTxTracker.publishTransaction.callCount, 1, 'Should call publish transaction')
     })
   })
- })
+
+  describe('#_checkIfNonceIsTaken', function () {
+    beforeEach ( function () {
+      let confirmedTxList = [{
+        id: 1,
+        hash: '0x0593ee121b92e10d63150ad08b4b8f9c7857d1bd160195ee648fb9a0f8d00eeb',
+        status: 'confirmed',
+        txParams: {
+          from: '0x1678a085c290ebd122dc42cba69373b5953b831d',
+          nonce: '0x1',
+          value: '0xfffff',
+        },
+        rawTx: '0xf86c808504a817c800827b0d940c62bb85faa3311a998d3aba8098c1235c564966880de0b6b3a7640000802aa08ff665feb887a25d4099e40e11f0fef93ee9608f404bd3f853dd9e84ed3317a6a02ec9d3d1d6e176d4d2593dd760e74ccac753e6a0ea0d00cc9789d0d7ff1f471d',
+      }, {
+        id: 2,
+        hash: '0x0593ee121b92e10d63150ad08b4b8f9c7857d1bd160195ee648fb9a0f8d00eeb',
+        status: 'confirmed',
+        txParams: {
+          from: '0x1678a085c290ebd122dc42cba69373b5953b831d',
+          nonce: '0x2',
+          value: '0xfffff',
+        },
+        rawTx: '0xf86c808504a817c800827b0d940c62bb85faa3311a998d3aba8098c1235c564966880de0b6b3a7640000802aa08ff665feb887a25d4099e40e11f0fef93ee9608f404bd3f853dd9e84ed3317a6a02ec9d3d1d6e176d4d2593dd760e74ccac753e6a0ea0d00cc9789d0d7ff1f471d',
+      }]
+      pendingTxTracker.getCompletedTransactions = (address) => {
+        if (!address) throw new Error('unless behavior has changed #_checkIfNonceIsTaken needs a filtered list of transactions to see if the nonce is taken')
+        return confirmedTxList
+      }
+    })
+
+    it('should return false if nonce has not been taken', function (done) {
+      pendingTxTracker._checkIfNonceIsTaken({
+        txParams: {
+          from: '0x1678a085c290ebd122dc42cba69373b5953b831d',
+          nonce: '0x3',
+          value: '0xfffff',
+        },
+      })
+      .then((taken) => {
+        assert.ok(!taken)
+        done()
+      })
+      .catch(done)
+    })
+
+    it('should return true if nonce has been taken', function (done) {
+      pendingTxTracker._checkIfNonceIsTaken({
+        txParams: {
+          from: '0x1678a085c290ebd122dc42cba69373b5953b831d',
+          nonce: '0x2',
+          value: '0xfffff',
+        },
+      }).then((taken) => {
+        assert.ok(taken)
+        done()
+      })
+      .catch(done)
+    })
+  })
 })
