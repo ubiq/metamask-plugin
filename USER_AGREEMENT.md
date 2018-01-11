@@ -6,7 +6,7 @@ _Our Terms of Use have been updated as of September 5, 2016_
 
 ## 1. Acceptance of Terms ##
 
-Sparrow provides a platform for managing Ubiq (or "UBQ") accounts, and allowing ordinary websites to interact with the Ubiq blockchain, while keeping the user in control over what transactions they approve, through our website located at[ ](http://sparrow.io)[https://sparrow.io/](https://sparrow.io/) and browser plugin (the "Site") — which includes text, images, audio, code and other materials  (collectively, the “Content”) and all of the features, and services provided. The Site, and any other features, tools, materials, or other services offered from time to time by Sparrow are referred to here as the “Service.” Please read these Terms of Use (the “Terms” or “Terms of Use”) carefully before using the Service. By using or otherwise accessing the Services, or clicking to accept or agree to these Terms where that option is made available, you (1) accept and agree to these Terms (2) consent to the collection, use, disclosure and other handling of information as described in our Privacy Policy  and (3) any additional terms, rules and conditions of participation issued by Sparrow from time to time. If you do not agree to the Terms, then you may not access or use the Content or Services.
+Sparrow provides a platform for managing Ubiq (or "UBQ") accounts, and allowing ordinary websites to interact with the Ubiq blockchain, while keeping the user in control over what transactions they approve, through our website located at[ ](http://sparrow.ubiqsmart.com)[https://sparrow.ubiqsmart.com/](https://sparrow.ubiqsmart.com/) and browser plugin (the "Site") — which includes text, images, audio, code and other materials  (collectively, the “Content”) and all of the features, and services provided. The Site, and any other features, tools, materials, or other services offered from time to time by Sparrow are referred to here as the “Service.” Please read these Terms of Use (the “Terms” or “Terms of Use”) carefully before using the Service. By using or otherwise accessing the Services, or clicking to accept or agree to these Terms where that option is made available, you (1) accept and agree to these Terms (2) consent to the collection, use, disclosure and other handling of information as described in our Privacy Policy  and (3) any additional terms, rules and conditions of participation issued by Sparrow from time to time. If you do not agree to the Terms, then you may not access or use the Content or Services.
 
 ## 2. Modification of Terms of Use ##
 
@@ -62,7 +62,7 @@ SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF CERTAIN WARRANTIES OR THE LIMIT
 
 ## 8. Our Proprietary Rights ##
 
-All title, ownership and intellectual property rights in and to the Service are owned by Sparrow or its licensors. You acknowledge and agree that the Service contains proprietary and confidential information that is protected by applicable intellectual property and other laws. Except as expressly authorized by Sparrow, you agree not to copy, modify, rent, lease, loan, sell, distribute, perform, display or create derivative works based on the Service, in whole or in part. Sparrow issues a license for Sparrow, found [here](https://github.com/Sparrow/Sparrow-plugin/blob/master/LICENSE). For information on other licenses utilized in the development of Sparrow, please see our attribution page at: [https://Sparrow.io/attributions.html](https://Sparrow.io/attributions.html)
+All title, ownership and intellectual property rights in and to the Service are owned by Sparrow or its licensors. You acknowledge and agree that the Service contains proprietary and confidential information that is protected by applicable intellectual property and other laws. Except as expressly authorized by Sparrow, you agree not to copy, modify, rent, lease, loan, sell, distribute, perform, display or create derivative works based on the Service, in whole or in part. Sparrow issues a license for Sparrow, found [here](https://github.com/ubiq/sparrow-plugin/blob/master/LICENSE). For information on other licenses utilized in the development of Sparrow, please see our attribution page at: [https://sparrow.ubiqsmart.com/attributions.html](https://sparrow.ubiqsmart.com/attributions.html)
 
 ## 9. Links ##
 
@@ -168,12 +168,12 @@ The section titles in the Terms are for convenience only and have no legal or co
 
 ### 14.5 Communications ###
 
-Users with questions, complaints or claims with respect to the Service may contact us using the relevant contact information set forth above and at communications@Sparrow.io.
+Users with questions, complaints or claims with respect to the Service may contact us using the relevant contact information set forth above and at communications@sparrow.io.
 
 ## 15 Related Links ##
 
-**[Terms of Use](https://sparrow.io/terms.html)**
+**[Terms of Use](https://sparrow.ubiqsmart.com/terms.html)**
 
-**[Privacy](https://sparrow.io/privacy.html)**
+**[Privacy](https://sparrow.ubiqsmart.com/privacy.html)**
 
-**[Attributions](https://sparrow.io/attributions.html)**
+**[Attributions](https://sparrow.ubiqsmart.com/attributions.html)**
