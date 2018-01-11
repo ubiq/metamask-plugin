@@ -51,7 +51,7 @@ TokenCell.prototype.send = function (address, event) {
 }
 
 TokenCell.prototype.view = function (address, userAddress, network, event) {
-  const url = tokenLink(address, network);
+  const url = explorerLink(address, network)
   if (url) {
     navigateTo(url)
   }

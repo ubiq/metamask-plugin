@@ -149,7 +149,7 @@ BuyButtonSubview.prototype.primarySubview = function () {
             marginBottom: '15px',
           },
         }, 'In order to access this feature, please switch to the Main Network'),
-      ])  
+      ])
 
     default:
       return (

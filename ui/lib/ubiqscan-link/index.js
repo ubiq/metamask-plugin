@@ -5,6 +5,5 @@ const createTokenLink = require('./token-link')
 module.exports = {
   createExplorerLink,
   createAccountLink,
-  createTokenLink
+  createTokenLink,
 }
-

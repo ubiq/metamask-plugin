@@ -849,12 +849,11 @@ module.exports = class MetamaskController extends EventEmitter {
   }
 
   // network
-    
   async setCustomRpc (rpcTarget, rpcList) {
     this.networkController.setRpcTarget(rpcTarget)
     await this.preferencesController.updateFrequentRpcList(rpcTarget)
     return rpcTarget
-   }
+  }
 
   recordFirstTimeInfo (initState) {
     if (!('firstTimeInfo' in initState)) {

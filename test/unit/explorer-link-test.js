@@ -1,5 +1,5 @@
 var assert = require('assert')
-var linkGen = require('../../ui/lib/explorer-link')
+var linkGen = require('../../ui/lib/ubiqscan-link/explorer-link')
 
 describe('explorer-link', function () {
   it('adds rpc1 prefix to main network', function () {

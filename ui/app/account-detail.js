@@ -193,11 +193,6 @@ AccountDetailScreen.prototype.render = function () {
 
           h('.flex-grow'),
 
-          /*h('button', {
-            onClick: () => props.dispatch(actions.buyEthView(selected)),
-            style: { marginRight: '10px' },
-          }, 'BUY'),*/
-
           h('button', {
             onClick: () => props.dispatch(actions.showSendPage()),
             style: {
