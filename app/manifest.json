@@ -1,10 +1,10 @@
 {
   "name": "Sparrow",
   "short_name": "Sparrow",
-  "version": "1.0.0 - (3.13.4)",
+  "version": "1.0.0",
   "manifest_version": 2,
   "author": "https://sparrow.ubiqsmart.com",
-  "description": "Ubiq Browser Extension",
+  "description": "Sparrow creates endless possibilities within the Ubiq network by providing access to Dapps within your browser.",
   "commands": {
     "_execute_browser_action": {
       "suggested_key": {
