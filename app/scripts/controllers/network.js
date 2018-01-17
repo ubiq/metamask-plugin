@@ -1,7 +1,7 @@
 const assert = require('assert')
 const EventEmitter = require('events')
 const createMetamaskProvider = require('web3-provider-engine/zero.js')
-const createInfuraProvider = require('eth-json-rpc-infura/src/createProvider')
+const createShokkuProvider = require('ubq-json-rpc-shokku/src/createProvider')
 const ObservableStore = require('obs-store')
 const ComposedStore = require('obs-store/lib/composed')
 const extend = require('xtend')
@@ -9,7 +9,7 @@ const EthQuery = require('eth-query')
 const createEventEmitterProxy = require('../lib/events-proxy.js')
 const RPC_ADDRESS_LIST = require('../config.js').network
 const DEFAULT_RPC = RPC_ADDRESS_LIST['testnet']
-const INFURA_PROVIDER_TYPES = ['mainnet']
+const SHOKKU_PROVIDER_TYPES = ['mainnet', 'testnet']
 
 module.exports = class NetworkController extends EventEmitter {
 
@@ -116,10 +116,10 @@ module.exports = class NetworkController extends EventEmitter {
     // type-based rpc endpoints
     const { type } = opts
     if (type) {
-      // type-based infura rpc endpoints
-      const isInfura = INFURA_PROVIDER_TYPES.includes(type)
+      // type-based shokku rpc endpoints
+      const isShokku = SHOKKU_PROVIDER_TYPES.includes(type)
       opts.rpcUrl = this.getRpcAddressForType(type)
-      if (isInfura) {
+      if (isShokku) {
         this._configureInfuraProvider(opts)
       // other type-based rpc endpoints
       } else {
@@ -131,9 +131,9 @@ module.exports = class NetworkController extends EventEmitter {
     }
   }
 
-  _configureInfuraProvider (opts) {
-    log.info('_configureInfuraProvider', opts)
-    const blockTrackerProvider = createInfuraProvider({
+  _configureShokkuProvider (opts) {
+    log.info('_configureShokkuProvider', opts)
+    const blockTrackerProvider = createShokkuProvider({
       network: opts.type,
     })
     const providerParams = extend(this._baseProviderParams, {

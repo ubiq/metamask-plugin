@@ -1,0 +1,26 @@
+{
+  "objects": [
+    {
+      "symbol": "ubqusd",
+      "base": {
+        "code": "ubq",
+        "name": "Ubiq"
+      },
+      "quote": {
+        "code": "usd",
+        "name": "United States Dollar"
+      }
+    },
+    {
+      "symbol": "ubqeur",
+      "base": {
+        "code": "ubq",
+        "name": "Ubiq"
+      },
+      "quote": {
+        "code": "eur",
+        "name": "Euro"
+      }
+    }
+  ]
+}

@@ -4,11 +4,11 @@ const extend = require('xtend')
 // every ten minutes
 const POLLING_INTERVAL = 10 * 60 * 1000
 
-class InfuraController {
+class ShokkuController {
 
   constructor (opts = {}) {
     const initState = extend({
-      infuraNetworkStatus: {},
+      shokkuNetworkStatus: {},
     }, opts.initState)
     this.store = new ObservableStore(initState)
   }
@@ -19,25 +19,25 @@ class InfuraController {
 
   // Responsible for retrieving the status of Infura's nodes. Can return either
   // ok, degraded, or down.
-  checkInfuraNetworkStatus () {
-    return fetch('https://api.infura.io/v1/status/metamask')
+  checkShokkuNetworkStatus () {
+    return fetch('https://api.shokku.com/v1/services/status/sparrow')
       .then(response => response.json())
       .then((parsedResponse) => {
         this.store.updateState({
-          infuraNetworkStatus: parsedResponse,
+          shokkuNetworkStatus: parsedResponse,
         })
         return parsedResponse
       })
   }
 
-  scheduleInfuraNetworkCheck () {
+  scheduleShokkuNetworkCheck () {
     if (this.conversionInterval) {
       clearInterval(this.conversionInterval)
     }
     this.conversionInterval = setInterval(() => {
-      this.checkInfuraNetworkStatus()
+      this.checkShokkuNetworkStatus()
     }, POLLING_INTERVAL)
   }
 }
 
-module.exports = InfuraController
+module.exports = ShokkuController

@@ -21,7 +21,7 @@ const CurrencyController = require('./controllers/currency')
 const NoticeController = require('./notice-controller')
 const ShapeShiftController = require('./controllers/shapeshift')
 const AddressBookController = require('./controllers/address-book')
-const InfuraController = require('./controllers/infura')
+const ShokkuController = require('./controllers/shokku')
 const BlacklistController = require('./controllers/blacklist')
 const RecentBlocksController = require('./controllers/recent-blocks')
 const MessageManager = require('./lib/message-manager')
@@ -79,11 +79,11 @@ module.exports = class MetamaskController extends EventEmitter {
     this.currencyController.updateConversionRate()
     this.currencyController.scheduleConversionInterval()
 
-    // infura controller
-    this.infuraController = new InfuraController({
-      initState: initState.InfuraController,
+    // shokku controller
+    this.shokkuController = new ShokkuController({
+      initState: initState.ShokkuController,
     })
-    this.infuraController.scheduleInfuraNetworkCheck()
+    this.shokkuController.scheduleShokkuNetworkCheck()
 
     this.blacklistController = new BlacklistController({
       initState: initState.BlacklistController,
@@ -207,8 +207,8 @@ module.exports = class MetamaskController extends EventEmitter {
     this.recentBlocksController.store.subscribe((state) => {
       this.store.updateState({ RecentBlocks: state })
     })
-    this.infuraController.store.subscribe((state) => {
-      this.store.updateState({ InfuraController: state })
+    this.shokkuController.store.subscribe((state) => {
+      this.store.updateState({ ShokkuController: state })
     })
 
     // manual mem state subscriptions
@@ -227,7 +227,7 @@ module.exports = class MetamaskController extends EventEmitter {
     this.currencyController.store.subscribe(sendUpdate)
     this.noticeController.memStore.subscribe(sendUpdate)
     this.shapeshiftController.store.subscribe(sendUpdate)
-    this.infuraController.store.subscribe(sendUpdate)
+    this.shokkuController.store.subscribe(sendUpdate)
   }
 
   //
@@ -310,7 +310,7 @@ module.exports = class MetamaskController extends EventEmitter {
       this.addressBookController.store.getState(),
       this.currencyController.store.getState(),
       this.noticeController.memStore.getState(),
-      this.infuraController.store.getState(),
+      this.shokkuController.store.getState(),
       this.recentBlocksController.store.getState(),
       // config manager
       this.configManager.getConfig(),
