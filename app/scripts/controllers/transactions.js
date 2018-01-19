@@ -139,7 +139,7 @@ module.exports = class TransactionController extends EventEmitter {
   }
 
   async newUnapprovedTransaction (txParams) {
-    log.debug(`MetaMaskController newUnapprovedTransaction ${JSON.stringify(txParams)}`)
+    log.debug(`SparrowController newUnapprovedTransaction ${JSON.stringify(txParams)}`)
     const initialTxMeta = await this.addUnapprovedTransaction(txParams)
     this.emit('newUnapprovedTx', initialTxMeta)
     // listen for tx completion (success, fail)
@@ -149,11 +149,11 @@ module.exports = class TransactionController extends EventEmitter {
           case 'submitted':
             return resolve(finishedTxMeta.hash)
           case 'rejected':
-            return reject(new Error('MetaMask Tx Signature: User denied transaction signature.'))
+            return reject(new Error('Sparrow Tx Signature: User denied transaction signature.'))
           case 'failed':
             return reject(new Error(finishedTxMeta.err.message))
           default:
-            return reject(new Error(`MetaMask Tx Signature: Unknown problem: ${JSON.stringify(finishedTxMeta.txParams)}`))
+            return reject(new Error(`Sparrow Tx Signature: Unknown problem: ${JSON.stringify(finishedTxMeta.txParams)}`))
         }
       })
     })

@@ -51,7 +51,7 @@ function setupStreams () {
     pageStream,
     pluginStream,
     pageStream,
-    (err) => logStreamDisconnectWarning('MetaMask Contentscript Forwarding', err)
+    (err) => logStreamDisconnectWarning('Sparrow Contentscript Forwarding', err)
   )
 
   // setup local multistream channels
@@ -62,13 +62,13 @@ function setupStreams () {
     mux,
     pageStream,
     mux,
-    (err) => logStreamDisconnectWarning('MetaMask Inpage', err)
+    (err) => logStreamDisconnectWarning('Sparrow Inpage', err)
   )
   pump(
     mux,
     pluginStream,
     mux,
-    (err) => logStreamDisconnectWarning('MetaMask Background', err)
+    (err) => logStreamDisconnectWarning('Sparrow Background', err)
   )
 
   // connect ping stream
@@ -77,7 +77,7 @@ function setupStreams () {
     mux,
     pongStream,
     mux,
-    (err) => logStreamDisconnectWarning('MetaMask PingPongStream', err)
+    (err) => logStreamDisconnectWarning('Sparrow PingPongStream', err)
   )
 
   // connect phishing warning stream
@@ -130,6 +130,6 @@ function documentElementCheck () {
 }
 
 function redirectToPhishingWarning () {
-  console.log('MetaMask - redirecting to phishing warning')
+  console.log('Sparrow - redirecting to phishing warning')
   window.location.href = 'https://metamask.io/phishing.html'
 }

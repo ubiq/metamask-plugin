@@ -238,7 +238,7 @@ module.exports = class MetamaskController extends EventEmitter {
     const providerOpts = {
       static: {
         eth_syncing: false,
-        web3_clientVersion: `MetaMask/v${version}`,
+        web3_clientVersion: `Sparrow/v${version}`,
       },
       // account mgmt
       getAccounts: (cb) => {
@@ -400,7 +400,7 @@ module.exports = class MetamaskController extends EventEmitter {
   setupUntrustedCommunication (connectionStream, originDomain) {
     // Check if new connection is blacklisted
     if (this.blacklistController.checkForPhishing(originDomain)) {
-      log.debug('MetaMask - sending phishing warning for', originDomain)
+      log.debug('Sparrow - sending phishing warning for', originDomain)
       this.sendPhishingWarning(connectionStream, originDomain)
       return
     }
@@ -638,16 +638,16 @@ module.exports = class MetamaskController extends EventEmitter {
         case 'signed':
           return cb(null, data.rawSig)
         case 'rejected':
-          return cb(new Error('MetaMask Message Signature: User denied message signature.'))
+          return cb(new Error('Sparrow Message Signature: User denied message signature.'))
         default:
-          return cb(new Error(`MetaMask Message Signature: Unknown problem: ${JSON.stringify(msgParams)}`))
+          return cb(new Error(`Sparrow Message Signature: Unknown problem: ${JSON.stringify(msgParams)}`))
       }
     })
   }
 
   newUnsignedPersonalMessage (msgParams, cb) {
     if (!msgParams.from) {
-      return cb(new Error('MetaMask Message Signature: from field is required.'))
+      return cb(new Error('Sparrow Message Signature: from field is required.'))
     }
 
     const msgId = this.personalMessageManager.addUnapprovedMessage(msgParams)
@@ -658,9 +658,9 @@ module.exports = class MetamaskController extends EventEmitter {
         case 'signed':
           return cb(null, data.rawSig)
         case 'rejected':
-          return cb(new Error('MetaMask Message Signature: User denied message signature.'))
+          return cb(new Error('Sparrow Message Signature: User denied message signature.'))
         default:
-          return cb(new Error(`MetaMask Message Signature: Unknown problem: ${JSON.stringify(msgParams)}`))
+          return cb(new Error(`Sparrow Message Signature: Unknown problem: ${JSON.stringify(msgParams)}`))
       }
     })
   }
@@ -680,15 +680,15 @@ module.exports = class MetamaskController extends EventEmitter {
         case 'signed':
           return cb(null, data.rawSig)
         case 'rejected':
-          return cb(new Error('MetaMask Message Signature: User denied message signature.'))
+          return cb(new Error('Sparrow Message Signature: User denied message signature.'))
         default:
-          return cb(new Error(`MetaMask Message Signature: Unknown problem: ${JSON.stringify(msgParams)}`))
+          return cb(new Error(`Sparrow Message Signature: Unknown problem: ${JSON.stringify(msgParams)}`))
       }
     })
   }
 
   signMessage (msgParams, cb) {
-    log.info('MetaMaskController - signMessage')
+    log.info('SparrowController - signMessage')
     const msgId = msgParams.metamaskId
 
     // sets the status op the message to 'approved'
@@ -724,15 +724,15 @@ module.exports = class MetamaskController extends EventEmitter {
         case 'signed':
           return cb(null, data.rawSig)
         case 'rejected':
-          return cb(new Error('MetaMask Message Signature: User denied transaction signature.'))
+          return cb(new Error('Sparrow Message Signature: User denied transaction signature.'))
         default:
-          return cb(new Error(`MetaMask Message Signature: Unknown problem: ${JSON.stringify(msgParams)}`))
+          return cb(new Error(`Sparrow Message Signature: Unknown problem: ${JSON.stringify(msgParams)}`))
       }
     })
   }
 
   signPersonalMessage (msgParams) {
-    log.info('MetaMaskController - signPersonalMessage')
+    log.info('SparrowController - signPersonalMessage')
     const msgId = msgParams.metamaskId
     // sets the status op the message to 'approved'
     // and removes the metamaskId for signing
@@ -750,7 +750,7 @@ module.exports = class MetamaskController extends EventEmitter {
   }
 
   signTypedMessage (msgParams) {
-    log.info('MetaMaskController - signTypedMessage')
+    log.info('SparrowController - signTypedMessage')
     const msgId = msgParams.metamaskId
     // sets the status op the message to 'approved'
     // and removes the metamaskId for signing
