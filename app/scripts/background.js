@@ -35,7 +35,7 @@ initialize().catch(log.error)
 async function initialize () {
   const initState = await loadStateFromPersistence()
   await setupController(initState)
-  log.debug('MetaMask initialization complete.')
+  log.debug('Sparrow initialization complete.')
 }
 
 //

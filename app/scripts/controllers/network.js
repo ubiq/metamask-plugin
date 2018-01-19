@@ -1,7 +1,7 @@
 const assert = require('assert')
 const EventEmitter = require('events')
 const createMetamaskProvider = require('web3-provider-engine/zero.js')
-const createShokkuProvider = require('ubq-json-rpc-shokku/src/createProvider')
+const createShokkuProvider = require('ubiq-json-rpc-shokku/src/createProvider')
 const ObservableStore = require('obs-store')
 const ComposedStore = require('obs-store/lib/composed')
 const extend = require('xtend')
@@ -120,7 +120,7 @@ module.exports = class NetworkController extends EventEmitter {
       const isShokku = SHOKKU_PROVIDER_TYPES.includes(type)
       opts.rpcUrl = this.getRpcAddressForType(type)
       if (isShokku) {
-        this._configureInfuraProvider(opts)
+        this._configureShokkuProvider(opts)
       // other type-based rpc endpoints
       } else {
         this._configureStandardProvider(opts)
