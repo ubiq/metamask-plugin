@@ -20,7 +20,7 @@ class ShokkuController {
   // Responsible for retrieving the status of Infura's nodes. Can return either
   // ok, degraded, or down.
   checkShokkuNetworkStatus () {
-    return fetch('https://api.shokku.com/v1/services/status/sparrow')
+    return fetch('https://api.shokku.com/v1/services/status/')
       .then(response => response.json())
       .then((parsedResponse) => {
         this.store.updateState({
