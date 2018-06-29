@@ -1,7 +1,7 @@
 const assert = require('assert')
 const EventEmitter = require('events')
 const createMetamaskProvider = require('web3-provider-engine/zero.js')
-const createShokkuProvider = require('ubiq-json-rpc-shokku/src/createProvider')
+const createProvider = require('@ubiqsmart/sparrow-ubiq-rpc-provider/src/createProvider')
 const ObservableStore = require('obs-store')
 const ComposedStore = require('obs-store/lib/composed')
 const extend = require('xtend')
@@ -133,7 +133,7 @@ module.exports = class NetworkController extends EventEmitter {
 
   _configureShokkuProvider (opts) {
     log.info('_configureShokkuProvider', opts)
-    const blockTrackerProvider = createShokkuProvider({
+    const blockTrackerProvider = createProvider({
       network: opts.type,
     })
     const providerParams = extend(this._baseProviderParams, {
