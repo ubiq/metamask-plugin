@@ -146,9 +146,9 @@ function triggerUi () {
   if (!popupIsOpen) notificationManager.showPopup()
 }
 
-// On first install, open a window to MetaMask website to how-it-works.
+// On first install, open a window to Ubiqsmart website.
 extension.runtime.onInstalled.addListener(function (details) {
   if ((details.reason === 'install') && (!METAMASK_DEBUG)) {
-    extension.tabs.create({url: 'https://sparrow.ubiqsmart.com/#how-it-works'})
+    extension.tabs.create({url: 'https://ubiqsmart.com'})
   }
 })
