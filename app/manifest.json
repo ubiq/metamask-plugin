@@ -1,7 +1,7 @@
 {
   "name": "Sparrow",
   "short_name": "Sparrow",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "manifest_version": 2,
   "author": "https://sparrow.ubiqsmart.com",
   "description": "Sparrow creates endless possibilities within the Ubiq network by providing access to Dapps within your browser.",
