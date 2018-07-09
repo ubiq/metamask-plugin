@@ -125,6 +125,8 @@ module.exports = class TransactionController extends EventEmitter {
     const getChainId = parseInt(networkState)
     if (Number.isNaN(getChainId)) {
       return 0
+    } else if (getChainId === 88) { // ubiq mainnet chainId fix
+      return 8
     } else {
       return getChainId
     }
