@@ -2,6 +2,11 @@
 
 ## Current Master
 
+## 1.0.1
+
+- Fix chainId bug on Ubiq main net
+- Adjust showRetryButton time to reflect Ubiq blocktimes
+
 ## 1.0.0 / Metamask: 3.13.4 2018-1-9
 
 - Added identity to the extension with custom logos and CSS.
