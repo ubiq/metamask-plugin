@@ -7,6 +7,6 @@ var changelog = fs.readFileSync(path.join(__dirname, '..', 'CHANGELOG.md')).toSt
 
 var log = changelog.split(version)[1].split('##')[0].trim()
 
-let msg = `Sparrow ${version}* now published to the Chrome Store! It should auto-update soon!\n${log}`
+const msg = `*Sparrow ${version}* now published! It should auto-update soon!\n${log}`
 
 console.log(msg)

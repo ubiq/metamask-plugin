@@ -1,10 +1,13 @@
 // Karma configuration
 // Generated on Mon Sep 11 2017 18:45:48 GMT-0700 (PDT)
 
-module.exports = function(config) {
+module.exports = function (config) {
   return {
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: process.cwd(),
+
+    // Uncomment to allow for longer timeouts
+    // browserNoActivityTimeout: 100000000,
 
     browserConsoleLogOptions: {
       terminal: false,
@@ -19,11 +22,13 @@ module.exports = function(config) {
       'test/integration/jquery-3.1.0.min.js',
       { pattern: 'dist/chrome/images/**/*.*', watched: false, included: false, served: true },
       { pattern: 'dist/chrome/fonts/**/*.*', watched: false, included: false, served: true },
+      { pattern: 'dist/chrome/_locales/**/*.*', watched: false, included: false, served: true },
     ],
 
     proxies: {
       '/images/': '/base/dist/chrome/images/',
       '/fonts/': '/base/dist/chrome/fonts/',
+      '/_locales/': '/base/dist/chrome/_locales/',
     },
 
     // test results reporter to use
@@ -46,7 +51,9 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome', 'Firefox'],
+    browsers: process.env.browsers ?
+      JSON.parse(process.env.browsers)
+      : ['Chrome', 'Firefox'],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
@@ -54,6 +61,8 @@ module.exports = function(config) {
 
     // Concurrency level
     // how many browser should be started simultaneous
-    concurrency: Infinity
+    concurrency: 1,
+
+    nocache: true,
   }
 }

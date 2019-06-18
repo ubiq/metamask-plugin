@@ -1,4 +1,5 @@
-const valuesFor = require('../app/util').valuesFor
+const valuesFor = require('../app/helpers/utils/util').valuesFor
+const log = require('loglevel')
 
 module.exports = function (unapprovedTxs, unapprovedMsgs, personalMsgs, typedMessages, network) {
   log.debug('tx-helper called with params:')
@@ -20,7 +21,7 @@ module.exports = function (unapprovedTxs, unapprovedMsgs, personalMsgs, typedMes
   allValues = allValues.concat(typedValues)
 
   allValues = allValues.sort((a, b) => {
-    return a.time > b.time
+    return a.time - b.time
   })
 
   return allValues
