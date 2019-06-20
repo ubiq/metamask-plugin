@@ -54,7 +54,7 @@ function reduceMetamask (state, action) {
     firstTimeFlowType: null,
     completedOnboarding: false,
     knownMethodData: {},
-    participateInMetaMetrics: null,
+    participateInMetaMetrics: false,
     metaMetricsSendCount: 0,
   }, state.metamask)
 

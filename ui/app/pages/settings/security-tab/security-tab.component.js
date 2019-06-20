@@ -97,6 +97,9 @@ export default class SecurityTab extends PureComponent {
       <div className="settings-page__content-row">
         <div className="settings-page__content-item">
           <span>{ t('revealSeedWords') }</span>
+          <div className="settings-page__content-description">
+            { t('revealSeedWordsDescription') }
+          </div>
         </div>
         <div className="settings-page__content-item">
           <div className="settings-page__content-item-col">
@@ -184,7 +187,6 @@ export default class SecurityTab extends PureComponent {
         { this.renderPrivacyOptIn() }
         { this.renderClearApproval() }
         { this.renderSeedWords() }
-        { this.renderMetaMetricsOptIn() }
       </div>
     )
   }

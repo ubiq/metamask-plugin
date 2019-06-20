@@ -12,7 +12,7 @@
     "message": "Expose accounts to the current website. Useful for legacy dapps."
   },
   "chartOnlyAvailableEth": {
-    "message": "Chart only available on Ethereum networks."
+    "message": "Chart only available on Ubiq networks."
   },
   "confirmExpose": {
     "message": "Are you sure you want to expose your accounts to the current website?"
@@ -220,13 +220,13 @@
     "message": "Buy on Coinbase"
   },
   "buyCoinbaseExplainer": {
-    "message": "Coinbase is the world’s most popular way to buy and sell Bitcoin, Ethereum, and Litecoin."
+    "message": "Coinbase is the world’s most popular way to buy and sell Bitcoin, Ubiq, and Litecoin."
   },
   "buyWithWyre": {
-    "message": "Buy ETH with Wyre"
+    "message": "Buy Ubiq with Wyre"
   },
   "buyWithWyreDescription": {
-    "message": "Wyre lets you use a credit card to deposit ETH right in to your Sparrow account."
+    "message": "Wyre lets you use a credit card to deposit Ubiq right in to your Sparrow account."
   },
   "buyCoinSwitch": {
     "message": "Buy on CoinSwitch"
@@ -325,7 +325,7 @@
     "message": "Connecting to Kovan Test Network"
   },
   "connectingToMainnet": {
-    "message": "Connecting to Main Ethereum Network"
+    "message": "Connecting to Main Ubiq Network"
   },
   "connectingToRopsten": {
     "message": "Connecting to Ropsten Test Network"
@@ -452,7 +452,7 @@
     "message": "Decimals of Precision"
   },
   "defaultNetwork": {
-    "message": "The default network for Ether transactions is Main Net."
+    "message": "The default network for UBQ transactions is Main Net."
   },
   "delete": {
     "message": "Delete"
@@ -474,7 +474,7 @@
     "message": "Deposit Eth"
   },
   "depositEther": {
-    "message": "Deposit Ether"
+    "message": "Deposit UBQ"
   },
   "depositFiat": {
     "message": "Deposit with Fiat"
@@ -486,7 +486,7 @@
     "message": "Deposit with ShapeShift"
   },
   "depositShapeShiftExplainer": {
-    "message": "If you own other cryptocurrencies, you can trade and deposit Ether directly into your Sparrow wallet. No Account Needed."
+    "message": "If you own other cryptocurrencies, you can trade and deposit UBQ directly into your Sparrow wallet. No Account Needed."
   },
   "details": {
     "message": "Details"
@@ -495,10 +495,10 @@
     "message": "Direct Deposit"
   },
   "directDepositEther": {
-    "message": "Directly Deposit Ether"
+    "message": "Directly Deposit UBQ"
   },
   "directDepositEtherExplainer": {
-    "message": "If you already have some Ether, the quickest way to get Ether in your new wallet by direct deposit."
+    "message": "If you already have some UBQ, the quickest way to get UBQ in your new wallet by direct deposit."
   },
   "done": {
     "message": "Done"
@@ -573,10 +573,10 @@
     "message": "Enter password to continue"
   },
   "eth": {
-    "message": "ETH"
+    "message": "Ubiq"
   },
   "etherscanView": {
-    "message": "View account on Etherscan"
+    "message": "View account on Ubiqscan"
   },
   "estimatedProcessingTimes": {
     "message": "Estimated Processing Times"
@@ -669,7 +669,7 @@
     "message": "Gas Price Extremely Low"
   },
   "gasPriceInfoModalContent": {
-    "message": "Gas price specifies the amount of Ether you are willing to pay for each unit of gas."
+    "message": "Gas price specifies the amount of UBQ you are willing to pay for each unit of gas."
   },
   "gasPriceNoDenom": {
     "message": "Gas Price"
@@ -690,11 +690,11 @@
     "message": "Generating transaction"
   },
   "getEther": {
-    "message": "Get Ether"
+    "message": "Get UBQ"
   },
   "getEtherFromFaucet": {
-    "message": "Get Ether from a faucet for the $1",
-    "description": "Displays network name for Ether faucet"
+    "message": "Get UBQ from a faucet for the $1",
+    "description": "Displays network name for UBQ faucet"
   },
   "getHelp": {
     "message": "Get Help."
@@ -747,10 +747,10 @@
     "message": "History"
   },
   "howToDeposit": {
-    "message": "How would you like to deposit Ether?"
+    "message": "How would you like to deposit UBQ?"
   },
   "holdEther": {
-    "message": "It allows you to hold ether & tokens, and serves as your bridge to decentralized applications."
+    "message": "It allows you to hold UBQ & tokens, and serves as your bridge to decentralized applications."
   },
   "import": {
     "message": "Import",
@@ -815,7 +815,7 @@
     "message": "Known contract address."
   },
   "invalidAddressRecipientNotEthNetwork": {
-    "message": "Not ETH network, set to lowercase"
+    "message": "Not Ubiq network, set to lowercase"
   },
   "invalidGasParams": {
     "message": "Invalid Gas Parameters"
@@ -901,7 +901,7 @@
     "message": "seed words only have lowercase characters"
   },
   "mainnet": {
-    "message": "Main Ethereum Network"
+    "message": "Main Ubiq Network"
   },
   "memorizePhrase": {
     "message": "Memorize this phrase."
@@ -943,7 +943,7 @@
     "message": "Must select at least 1 token."
   },
   "needEtherInWallet": {
-    "message": "To interact with decentralized applications using Sparrow, you’ll need Ether in your wallet."
+    "message": "To interact with decentralized applications using Sparrow, you’ll need UBQ in your wallet."
   },
   "needImportFile": {
     "message": "You must select a file to import.",
@@ -954,7 +954,7 @@
     "description": "Password and file needed to import an account"
   },
   "negativeETH": {
-    "message": "Can not send negative amounts of ETH."
+    "message": "Can not send negative amounts of Ubiq."
   },
   "networkName": {
     "message": "Network Name"
@@ -1072,10 +1072,10 @@
     "message": "You have returned to the old UI. You can switch back to the New UI through the option in the top right dropdown menu."
   },
   "onlySendToEtherAddress": {
-    "message": "Only send ETH to an Ethereum address."
+    "message": "Only send Ubiq to an Ubiq address."
   },
   "onlySendTokensToAccountAddress": {
-    "message": "Only send $1 to an Ethereum account address.",
+    "message": "Only send $1 to an Ubiq account address.",
     "description": "displays token symbol"
   },
   "openInTab": {
@@ -1152,7 +1152,7 @@
     "message": "Primary Currency"
   },
   "primaryCurrencySettingDescription": {
-    "message": "Select native to prioritize displaying values in the native currency of the chain (e.g. ETH). Select Fiat to prioritize displaying values in your selected fiat currency."
+    "message": "Select native to prioritize displaying values in the native currency of the chain (e.g. Ubiq). Select Fiat to prioritize displaying values in your selected fiat currency."
   },
   "privacyMsg": {
     "message": "Privacy Policy"
@@ -1317,7 +1317,7 @@
     "message": "Your secret backup phrase makes it easy to back up and restore your account."
   },
   "secretBackupPhraseWarning": {
-    "message": "WARNING: Never disclose your backup phrase. Anyone with this phrase can take your Ether forever."
+    "message": "WARNING: Never disclose your backup phrase. Anyone with this phrase can take your UBQ forever."
   },
   "secretPhrase": {
     "message": "Enter your secret twelve word phrase here to restore your vault."
@@ -1362,13 +1362,13 @@
     "message": "Send Amount"
   },
   "sendETH": {
-    "message": "Send ETH"
+    "message": "Send UBQ"
   },
   "sendTokens": {
     "message": "Send Tokens"
   },
   "sentEther": {
-    "message": "sent ether"
+    "message": "sent UBQ"
   },
   "sentTokens": {
     "message": "sent tokens"
@@ -1401,7 +1401,7 @@
     "message": "If you don't see your existing Ledger accounts below, try switching paths to \"Legacy (MEW / MyCrypto)\""
   },
   "sendTokensAnywhere": {
-    "message": "Send Tokens to anyone with an Ethereum account"
+    "message": "Send Tokens to anyone with an Ubiq account"
   },
   "settings": {
     "message": "Settings"
@@ -1506,7 +1506,7 @@
     "message": "3. Start using dApps and more!"
   },
   "step3HardwareWalletMsg": {
-    "message": "Use your hardware account like you would with any Ethereum account. Log in to dApps, send Eth, buy and store ERC20 tokens and Non-Fungible tokens like CryptoKitties."
+    "message": "Use your hardware account like you would with any Ubiq account. Log in to dApps, send Eth, buy and store ERC20 tokens and Non-Fungible tokens like CryptoKitties."
   },
   "storePhrase": {
     "message": "Store this phrase in a password manager like 1Password."
@@ -1566,7 +1566,7 @@
     "message": "To"
   },
   "toETHviaShapeShift": {
-    "message": "$1 to ETH via ShapeShift",
+    "message": "$1 to Ubiq via ShapeShift",
     "description": "system will fill in deposit type in start of message"
   },
   "token": {
@@ -1752,7 +1752,7 @@
     "message": "View at $1"
   },
   "viewOnEtherscan": {
-    "message": "View on Etherscan"
+    "message": "View on Ubiqscan"
   },
   "viewNetworkInfo": {
     "message": "View Network Info"
