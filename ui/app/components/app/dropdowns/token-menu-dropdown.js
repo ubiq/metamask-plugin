@@ -4,7 +4,7 @@ const h = require('react-hyperscript')
 const inherits = require('util').inherits
 const connect = require('react-redux').connect
 const actions = require('../../../store/actions')
-const genAccountLink = require('etherscan-link').createAccountLink
+const genAccountLink = require('ubiqscan-link').createAccountLink
 const { Menu, Item, CloseArea } = require('./components/menu')
 
 TokenMenuDropdown.contextTypes = {

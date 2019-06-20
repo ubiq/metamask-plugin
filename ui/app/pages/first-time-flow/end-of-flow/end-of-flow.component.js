@@ -24,7 +24,7 @@ export default class EndOfFlowScreen extends PureComponent {
         <div className="app-header__logo-container">
           <img
             className="app-header__metafox-logo app-header__metafox-logo--horizontal"
-            src="/images/logo/metamask-logo-horizontal.svg"
+            src="/images/logo/sparrow-logo-horizontal.png"
             height={30}
           />
           <img

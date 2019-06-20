@@ -1,5 +1,5 @@
 const Web3 = require('web3')
-const contracts = require('eth-contract-metadata')
+const contracts = require('ubiq-contract-metadata')
 const { warn } = require('loglevel')
 const { MAINNET } = require('./network/enums')
 // By default, poll every 3 minutes

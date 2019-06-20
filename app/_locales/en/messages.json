@@ -108,7 +108,7 @@
     "message": "Add Suggested Tokens"
   },
   "addAcquiredTokens": {
-    "message": "Add the tokens you've acquired using MetaMask"
+    "message": "Add the tokens you've acquired using Sparrow"
   },
   "agreeTermsOfService": {
     "message": "I agree to the Terms of Service"
@@ -161,7 +161,7 @@
     "message": "Auto-Logout Timer (minutes)"
   },
   "autoLogoutTimeLimitDescription": {
-    "message": "Set the idle time in minutes before MetaMask will automatically log out"
+    "message": "Set the idle time in minutes before Sparrow will automatically log out"
   },
   "available": {
     "message": "Available"
@@ -211,7 +211,7 @@
     "message": "Your Browser is not supported..."
   },
   "builtInCalifornia": {
-    "message": "MetaMask is designed and built in California."
+    "message": "Sparrow is designed and built in California."
   },
   "buy": {
     "message": "Buy"
@@ -226,7 +226,7 @@
     "message": "Buy ETH with Wyre"
   },
   "buyWithWyreDescription": {
-    "message": "Wyre lets you use a credit card to deposit ETH right in to your MetaMask account."
+    "message": "Wyre lets you use a credit card to deposit ETH right in to your Sparrow account."
   },
   "buyCoinSwitch": {
     "message": "Buy on CoinSwitch"
@@ -277,7 +277,7 @@
     "message": "Close"
   },
   "chromeRequiredForHardwareWallets": {
-    "message": "You need to use MetaMask on Google Chrome in order to connect to your Hardware Wallet."
+    "message": "You need to use Sparrow on Google Chrome in order to connect to your Hardware Wallet."
   },
   "company": {
     "message": "Company"
@@ -458,7 +458,7 @@
     "message": "Delete"
   },
   "denExplainer": {
-    "message": "Your DEN is your password-encrypted storage within MetaMask."
+    "message": "Your DEN is your password-encrypted storage within Sparrow."
   },
   "deposit": {
     "message": "Deposit"
@@ -486,7 +486,7 @@
     "message": "Deposit with ShapeShift"
   },
   "depositShapeShiftExplainer": {
-    "message": "If you own other cryptocurrencies, you can trade and deposit Ether directly into your MetaMask wallet. No Account Needed."
+    "message": "If you own other cryptocurrencies, you can trade and deposit Ether directly into your Sparrow wallet. No Account Needed."
   },
   "details": {
     "message": "Details"
@@ -549,7 +549,7 @@
     "message": "Never share the phrase with anyone."
   },
   "endOfFlowMessage5": {
-    "message": "Be careful of phishing! MetaMask will never spontaneously ask for your seed phrase."
+    "message": "Be careful of phishing! Sparrow will never spontaneously ask for your seed phrase."
   },
   "endOfFlowMessage6": {
     "message": "If you need to back up your seed phrase again, you can find it in Settings -> Security."
@@ -558,7 +558,7 @@
     "message": "If you ever have questions or see something fishy, email support@metamask.io."
   },
   "endOfFlowMessage8": {
-    "message": "MetaMask cannot recover your seedphrase. Learn more."
+    "message": "Sparrow cannot recover your seedphrase. Learn more."
   },
   "ensNameNotFound": {
     "message": "ENS name not found"
@@ -719,7 +719,7 @@
     "message": "Connect a hardware wallet"
   },
   "hardwareWalletsMsg": {
-    "message": "Select a hardware wallet you'd like to use with MetaMask"
+    "message": "Select a hardware wallet you'd like to use with Sparrow"
   },
   "havingTroubleConnecting": {
     "message": "Having trouble connecting?"
@@ -760,7 +760,7 @@
     "message": "Import Account"
   },
   "importAccountMsg": {
-    "message": " Imported accounts will not be associated with your originally created MetaMask account seedphrase. Learn more about imported accounts "
+    "message": " Imported accounts will not be associated with your originally created Sparrow account seedphrase. Learn more about imported accounts "
   },
   "importAccountSeedPhrase": {
     "message": "Import an Account with Seed Phrase"
@@ -840,7 +840,7 @@
     "description": "format for importing an account"
   },
   "keepTrackTokens": {
-    "message": "Keep track of the tokens you’ve bought with your MetaMask account."
+    "message": "Keep track of the tokens you’ve bought with your Sparrow account."
   },
   "kovan": {
     "message": "Kovan Test Network"
@@ -913,13 +913,13 @@
     "message": "Message"
   },
   "metamaskDescription": {
-    "message": "Connecting you to Ethereum and the Decentralized Web."
+    "message": "Connecting you to Ubiq and the Decentralized Web."
   },
   "metamaskSeedWords": {
-    "message": "MetaMask Seed Words"
+    "message": "Sparrow Seed Words"
   },
   "metamaskVersion": {
-    "message": "MetaMask Version"
+    "message": "Sparrow Version"
   },
   "min": {
     "message": "Minimum"
@@ -943,7 +943,7 @@
     "message": "Must select at least 1 token."
   },
   "needEtherInWallet": {
-    "message": "To interact with decentralized applications using MetaMask, you’ll need Ether in your wallet."
+    "message": "To interact with decentralized applications using Sparrow, you’ll need Ether in your wallet."
   },
   "needImportFile": {
     "message": "You must select a file to import.",
@@ -991,7 +991,7 @@
     "message": "New Network"
   },
   "newToMetaMask": {
-    "message": "New to MetaMask?"
+    "message": "New to Sparrow?"
   },
   "noAlreadyHaveSeed": {
     "message": "No, I already have a seed phrase"
@@ -1000,7 +1000,7 @@
     "message": "Protect Your Keys!"
   },
   "protectYourKeysMessage1": {
-    "message": "Be careful with your seed phrase — there have been reports of websites that attempt to imitate MetaMask. MetaMask will never ask for your seed phrase!"
+    "message": "Be careful with your seed phrase — there have been reports of websites that attempt to imitate Sparrow. Sparrow will never ask for your seed phrase!"
   },
   "protectYourKeysMessage2": {
     "message": "Keep your phrase safe. If you see something fishy, or you’re uncertain about a website, email support@metamask.io"
@@ -1104,7 +1104,7 @@
     "message": "Participate in MetaMetrics"
   },
   "participateInMetaMetricsDescription": {
-    "message": "Participate in MetaMetrics to help us make MetaMask better"
+    "message": "Participate in MetaMetrics to help us make Sparrow better"
   },
   "password": {
     "message": "Password"
@@ -1386,7 +1386,7 @@
     "message": "Select an Account"
   },
   "selectAnAccountHelp": {
-    "message": "Select the account to view in MetaMask"
+    "message": "Select the account to view in Sparrow"
   },
   "selectAnAsset": {
     "message": "Select an Asset"
@@ -1533,19 +1533,19 @@
     "message": "Sync with mobile"
   },
   "syncWithMobileDesc": {
-    "message": "You can sync your accounts and information with your mobile device. Open the MetaMask mobile app, go to \"Settings\" and tap on \"Sync from Browser Extension\""
+    "message": "You can sync your accounts and information with your mobile device. Open the Sparrow mobile app, go to \"Settings\" and tap on \"Sync from Browser Extension\""
   },
   "syncWithMobileDescNewUsers": {
-    "message": "If you just open the MetaMask Mobile app for the first time, just follow the steps in your phone."
+    "message": "If you just open the Sparrow Mobile app for the first time, just follow the steps in your phone."
   },
   "syncWithMobileScanThisCode": {
-    "message": "Scan this code with your MetaMask mobile app"
+    "message": "Scan this code with your Sparrow mobile app"
   },
   "syncWithMobileBeCareful": {
     "message": "Make sure nobody else is looking at your screen when you scan this code"
   },
   "syncWithMobileComplete": {
-    "message": "Your data has been synced succesfully. Enjoy the MetaMask mobile app!"
+    "message": "Your data has been synced succesfully. Enjoy the Sparrow mobile app!"
   },
   "takesTooLong": {
     "message": "Taking too long?"
@@ -1591,7 +1591,7 @@
     "message": "Token Symbol"
   },
   "tokenWarning1": {
-    "message": "Keep track of the tokens you’ve bought with your MetaMask account. If you bought tokens using a different account, those tokens will not appear here."
+    "message": "Keep track of the tokens you’ve bought with your Sparrow account. If you bought tokens using a different account, those tokens will not appear here."
   },
   "total": {
     "message": "Total"
@@ -1673,19 +1673,19 @@
     "message": "Try again"
   },
   "twelveWords": {
-    "message": "These 12 words are the only way to restore your MetaMask accounts.\nSave them somewhere safe and secret."
+    "message": "These 12 words are the only way to restore your Sparrow accounts.\nSave them somewhere safe and secret."
   },
   "typePassword": {
-    "message": "Type your MetaMask password"
+    "message": "Type your Sparrow password"
   },
   "uiMigrationAnnouncement": {
-    "message": "Welcome to the new MetaMask UI. If you have feedback about the UI or feature requests, please reach out to our support team or on GitHub."
+    "message": "Welcome to the new Sparrow UI. If you have feedback about the UI or feature requests, please reach out to our support team or on GitHub."
   },
   "uiWelcome": {
     "message": "Welcome to the New UI (Beta)"
   },
   "uiWelcomeMessage": {
-    "message": "You are now using the new MetaMask UI."
+    "message": "You are now using the new Sparrow UI."
   },
   "unapproved": {
     "message": "Unapproved"
@@ -1770,7 +1770,7 @@
     "message": "Welcome Back!"
   },
   "welcome": {
-    "message": "Welcome to MetaMask"
+    "message": "Welcome to Sparrow"
   },
   "whatsThis": {
     "message": "What's this?"
@@ -1803,7 +1803,7 @@
     "message": "You’ll see this image everytime you need to confirm a transaction."
   },
   "yourUniqueAccountImageDescription3": {
-    "message": "MetaMask will never ask for your seed phrase!"
+    "message": "Sparrow will never ask for your seed phrase!"
   },
   "zeroGasPriceOnSpeedUpError": {
     "message":"Zero gas price on speed up"

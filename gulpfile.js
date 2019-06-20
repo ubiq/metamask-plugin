@@ -77,7 +77,7 @@ createCopyTasks('images', {
   destinations: commonPlatforms.map(platform => `./dist/${platform}/images`),
 })
 createCopyTasks('contractImages', {
-  source: './node_modules/eth-contract-metadata/images/',
+  source: './node_modules/ubiq-contract-metadata/images/',
   destinations: commonPlatforms.map(platform => `./dist/${platform}/images/contract`),
 })
 createCopyTasks('fonts', {

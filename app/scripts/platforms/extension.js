@@ -1,5 +1,5 @@
 const extension = require('extensionizer')
-const {createExplorerLink: explorerLink} = require('etherscan-link')
+const {createExplorerLink: explorerLink} = require('ubiqscan-link')
 
 class ExtensionPlatform {
 
