@@ -471,7 +471,7 @@
     "description": "Tells the user what coin they have selected to deposit with shapeshift"
   },
   "depositEth": {
-    "message": "Deposit Eth"
+    "message": "Deposit UBQ"
   },
   "depositEther": {
     "message": "Deposit UBQ"
@@ -573,7 +573,7 @@
     "message": "Enter password to continue"
   },
   "eth": {
-    "message": "Ubiq"
+    "message": "UBQ"
   },
   "etherscanView": {
     "message": "View account on Ubiqscan"
@@ -954,7 +954,7 @@
     "description": "Password and file needed to import an account"
   },
   "negativeETH": {
-    "message": "Can not send negative amounts of Ubiq."
+    "message": "Can not send negative amounts of UBQ."
   },
   "networkName": {
     "message": "Network Name"
@@ -1072,7 +1072,7 @@
     "message": "You have returned to the old UI. You can switch back to the New UI through the option in the top right dropdown menu."
   },
   "onlySendToEtherAddress": {
-    "message": "Only send Ubiq to an Ubiq address."
+    "message": "Only send UBQ to an Ubiq address."
   },
   "onlySendTokensToAccountAddress": {
     "message": "Only send $1 to an Ubiq account address.",
@@ -1152,7 +1152,7 @@
     "message": "Primary Currency"
   },
   "primaryCurrencySettingDescription": {
-    "message": "Select native to prioritize displaying values in the native currency of the chain (e.g. Ubiq). Select Fiat to prioritize displaying values in your selected fiat currency."
+    "message": "Select native to prioritize displaying values in the native currency of the chain (e.g. UBQ). Select Fiat to prioritize displaying values in your selected fiat currency."
   },
   "privacyMsg": {
     "message": "Privacy Policy"
@@ -1506,7 +1506,7 @@
     "message": "3. Start using dApps and more!"
   },
   "step3HardwareWalletMsg": {
-    "message": "Use your hardware account like you would with any Ubiq account. Log in to dApps, send Eth, buy and store ERC20 tokens and Non-Fungible tokens like CryptoKitties."
+    "message": "Use your hardware account like you would with any Ubiq account. Log in to dApps, send UBQ, buy and store ERC20 tokens and Non-Fungible tokens like CryptoKitties."
   },
   "storePhrase": {
     "message": "Store this phrase in a password manager like 1Password."
@@ -1566,7 +1566,7 @@
     "message": "To"
   },
   "toETHviaShapeShift": {
-    "message": "$1 to Ubiq via ShapeShift",
+    "message": "$1 to UBQ via ShapeShift",
     "description": "system will fill in deposit type in start of message"
   },
   "token": {
