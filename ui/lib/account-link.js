@@ -7,7 +7,7 @@ module.exports = function (address, network, rpcPrefs) {
   let link
   switch (net) {
     case 1: // main net
-      link = `https://etherscan.io/address/${address}`
+      link = `https://ubiqscan.io/address/${address}`
       break
     case 2: // morden test net
       link = `https://morden.etherscan.io/address/${address}`
