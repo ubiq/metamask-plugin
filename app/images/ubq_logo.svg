@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="417"
+   height="417"
+   viewBox="0 0 417 417"
+   version="1.1"
+   preserveAspectRatio="xMidYMid"
+   id="svg16"
+   sodipodi:docname="ubq_logo.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata22">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs20">
+    <clipPath
+       id="clipPath34"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path36"
+         d="M 0,1200 H 1920 V 0 H 0 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath72"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path74"
+         d="M 0,1200 H 1920 V 0 H 0 Z" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1026"
+     id="namedview18"
+     showgrid="false"
+     inkscape:zoom="0.56594724"
+     inkscape:cx="128"
+     inkscape:cy="208.5"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg16" />
+  <g
+     transform="matrix(0.37345028,0,0,-0.37345028,-15.570167,432.57016)"
+     inkscape:label="ubiq v2"
+     id="g10">
+    <g
+       transform="matrix(1.4677765,0,0,1.4677765,-304.34284,-573.04028)"
+       id="g4172">
+      <g
+         id="g14-3"
+         transform="matrix(1.5368611,0,0,1.5368611,284.48053,673.45605)">
+        <path
+           d="M 0,0 149.456,-89.981 V 114.226 Z"
+           style="fill:#0ca579;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="path16"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         id="g18"
+         transform="matrix(1.5368611,0,0,1.5368611,638.39613,1179.4868)">
+        <path
+           d="M 0,0 V -196.574 L -230.285,-329.263 V -129.63 Z"
+           style="fill:#00ea90;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="path20"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         id="g22"
+         transform="matrix(1.5368611,0,0,1.5368611,947.78164,924.93386)">
+        <path
+           d="M 0,0 -149.457,89.975 V -114.226 Z"
+           style="fill:#333333;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="path24"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         id="g26"
+         transform="matrix(1.5368611,0,0,1.5368611,593.86619,418.90406)">
+        <path
+           d="M 0,0 V 196.574 L 230.285,329.262 V 129.63 Z"
+           style="fill:#494949;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="path28"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
+  </g>
+</svg>
