@@ -19,10 +19,12 @@ const {
   RINKEBY,
   KOVAN,
   MAINNET,
+  ETHEREUM,
   LOCALHOST,
   GOERLI,
+  MAINNET_DISPLAY_NAME
 } = require('./enums')
-const INFURA_PROVIDER_TYPES = [ROPSTEN, RINKEBY, KOVAN, MAINNET, GOERLI]
+const INFURA_PROVIDER_TYPES = [ETHEREUM, ROPSTEN, RINKEBY, KOVAN, GOERLI]
 
 const env = process.env.METAMASK_ENV
 const METAMASK_DEBUG = process.env.METAMASK_DEBUG
@@ -41,7 +43,7 @@ const defaultProviderConfig = {
 }
 
 const defaultNetworkConfig = {
-  ticker: 'ETH',
+  ticker: 'UBQ',
 }
 
 module.exports = class NetworkController extends EventEmitter {
@@ -129,7 +131,7 @@ module.exports = class NetworkController extends EventEmitter {
     })
   }
 
-  setRpcTarget (rpcTarget, chainId, ticker = 'ETH', nickname = '', rpcPrefs) {
+  setRpcTarget (rpcTarget, chainId, ticker = 'UBQ', nickname = '', rpcPrefs) {
     const providerConfig = {
       type: 'rpc',
       rpcTarget,
@@ -141,11 +143,26 @@ module.exports = class NetworkController extends EventEmitter {
     this.providerConfig = providerConfig
   }
 
-  async setProviderType (type, rpcTarget = '', ticker = 'ETH', nickname = '') {
-    assert.notEqual(type, 'rpc', `NetworkController - cannot call "setProviderType" with type 'rpc'. use "setRpcTarget"`)
-    assert(INFURA_PROVIDER_TYPES.includes(type) || type === LOCALHOST, `NetworkController - Unknown rpc type "${type}"`)
-    const providerConfig = { type, rpcTarget, ticker, nickname }
+  setMainnetRpcTarget (rpcTarget, chainId, ticker = 'UBQ', nickname = '') {
+    const providerConfig = {
+      type: MAINNET,
+      rpcTarget,
+      chainId,
+      ticker,
+      nickname
+    }
     this.providerConfig = providerConfig
+  }
+
+  async setProviderType (type, rpcTarget = '', ticker = 'UBQ', nickname = '') {
+    assert.notEqual(type, 'rpc', `NetworkController - cannot call "setProviderType" with type 'rpc'. use "setRpcTarget"`)
+    assert(INFURA_PROVIDER_TYPES.includes(type) || type === LOCALHOST || type === MAINNET, `NetworkController - Unknown rpc type "${type}"`)
+    if (type === MAINNET) {
+      this.setMainnetRpcTarget('https://rpc1.ubiqscan.io', '8', ticker, '')
+    } else {
+      const providerConfig = { type, rpcTarget, ticker, nickname }
+      this.providerConfig = providerConfig
+    }
   }
 
   resetConnection () {
@@ -181,7 +198,7 @@ module.exports = class NetworkController extends EventEmitter {
     } else if (type === LOCALHOST) {
       this._configureLocalhostProvider()
     // url-based rpc endpoints
-    } else if (type === 'rpc') {
+    } else if (type === 'rpc' || type === MAINNET) {
       this._configureStandardProvider({ rpcUrl: rpcTarget, chainId, ticker, nickname })
     } else {
       throw new Error(`NetworkController - _configureProvider - unknown type "${type}"`)
@@ -212,12 +229,12 @@ module.exports = class NetworkController extends EventEmitter {
     networks.networkList['rpc'] = {
       chainId: chainId,
       rpcUrl,
-      ticker: ticker || 'ETH',
+      ticker: ticker || 'UBQ',
       nickname,
     }
     // setup networkConfig
     var settings = {
-      network: chainId,
+      network: chainId === '8' ? '88' : chainId,
     }
     settings = extend(settings, networks.networkList['rpc'])
     this.networkConfig.putState(settings)
@@ -230,6 +247,7 @@ module.exports = class NetworkController extends EventEmitter {
     engine.push(metamaskMiddleware)
     engine.push(networkMiddleware)
     const provider = providerFromEngine(engine)
+    console.log(provider)
     this._setProviderAndBlockTracker({ provider, blockTracker })
   }
 

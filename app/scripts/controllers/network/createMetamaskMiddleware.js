@@ -19,7 +19,7 @@ function createMetamaskMiddleware ({
     createScaffoldMiddleware({
       // staticSubprovider
       eth_syncing: false,
-      web3_clientVersion: `MetaMask/v${version}`,
+      web3_clientVersion: `Sparrow/v${version}`,
     }),
     createWalletSubprovider({
       getAccounts,

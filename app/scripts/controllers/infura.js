@@ -5,11 +5,11 @@ const log = require('loglevel')
 // every ten minutes
 const POLLING_INTERVAL = 10 * 60 * 1000
 
-class ShokkuController {
+class InfuraController {
 
   constructor (opts = {}) {
     const initState = extend({
-      shokkuNetworkStatus: {},
+      infuraNetworkStatus: {},
     }, opts.initState)
     this.store = new ObservableStore(initState)
   }
@@ -20,8 +20,8 @@ class ShokkuController {
 
   // Responsible for retrieving the status of Infura's nodes. Can return either
   // ok, degraded, or down.
-  async checkShokkuNetworkStatus () {
-    const response = await fetch('https://api.shokku.com/v1/services/status/')
+  async checkInfuraNetworkStatus () {
+    const response = await fetch('https://api.infura.io/v1/status/metamask')
     const parsedResponse = await response.json()
     this.store.updateState({
       infuraNetworkStatus: parsedResponse,
@@ -29,14 +29,14 @@ class ShokkuController {
     return parsedResponse
   }
 
-  scheduleShokkuNetworkCheck () {
+  scheduleInfuraNetworkCheck () {
     if (this.conversionInterval) {
       clearInterval(this.conversionInterval)
     }
     this.conversionInterval = setInterval(() => {
-      this.checkShokkuNetworkStatus().catch(log.warn)
+      this.checkInfuraNetworkStatus().catch(log.warn)
     }, POLLING_INTERVAL)
   }
 }
 
-module.exports = ShokkuController
+module.exports = InfuraController

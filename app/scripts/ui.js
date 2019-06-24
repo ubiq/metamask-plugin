@@ -20,7 +20,7 @@ async function start () {
 
   // setup sentry error reporting
   const release = global.platform.getVersion()
-  setupSentry({ release, getState })
+  // setupSentry({ release, getState })
   // provide app state to append to error logs
   function getState () {
     // get app state

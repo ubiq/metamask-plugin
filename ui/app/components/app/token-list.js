@@ -105,7 +105,12 @@ TokenList.prototype.createFreshTokenTracker = function () {
     this.tracker.removeListener('error', this.showError)
   }
 
-  if (!global.ethereumProvider) return
+  if (!global.ethereumProvider) {
+    console.log('global.ethereumProvider not defined')
+    console.log(global.ethereumProvider)
+    return
+  }
+
   const { userAddress } = this.props
 
   this.tracker = new TokenTracker({

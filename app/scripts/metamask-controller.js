@@ -26,7 +26,7 @@ const KeyringController = require('eth-keyring-controller')
 const NetworkController = require('./controllers/network')
 const PreferencesController = require('./controllers/preferences')
 const AppStateController = require('./controllers/app-state')
-const ShokkuController = require('./controllers/shokku')
+const InfuraController = require('./controllers/infura')
 const CachedBalancesController = require('./controllers/cached-balances')
 const RecentBlocksController = require('./controllers/recent-blocks')
 const MessageManager = require('./lib/message-manager')
@@ -112,10 +112,10 @@ module.exports = class MetamaskController extends EventEmitter {
     this.currencyRateController = new CurrencyRateController(undefined, initState.CurrencyController)
 
     // shokku controller
-    this.shokkuController = new ShokkuController({
-      initState: initState.ShokkuController,
+    this.infuraController = new InfuraController({
+      initState: initState.InfuraController,
     })
-    this.shokkuController.scheduleShokkuNetworkCheck()
+    this.infuraController.scheduleInfuraNetworkCheck()
 
     this.phishingController = new PhishingController()
 
@@ -260,7 +260,7 @@ module.exports = class MetamaskController extends EventEmitter {
       CurrencyController: this.currencyRateController,
       ShapeShiftController: this.shapeshiftController,
       NetworkController: this.networkController.store,
-      ShokkuController: this.shokkuController.store,
+      InfuraController: this.infuraController.store,
       CachedBalancesController: this.cachedBalancesController.store,
     })
 
@@ -281,7 +281,7 @@ module.exports = class MetamaskController extends EventEmitter {
       AddressBookController: this.addressBookController,
       CurrencyController: this.currencyRateController,
       ShapeshiftController: this.shapeshiftController,
-      ShokkuController: this.shokkuController.store,
+      InfuraController: this.infuraController.store,
       ProviderApprovalController: this.providerApprovalController.store,
     })
     this.memStore.subscribe(this.sendUpdate.bind(this))

@@ -503,13 +503,13 @@ class PreferencesController {
    * @returns {Promise<array>} Promise resolving to updated frequentRpcList.
    *
    */
-    addToFrequentRpcList (url, chainId, ticker = 'ETH', nickname = '', rpcPrefs = {}) {
+    addToFrequentRpcList (url, chainId, ticker = 'UBQ', nickname = '', rpcPrefs = {}) {
       const rpcList = this.getFrequentRpcListDetail()
       const index = rpcList.findIndex((element) => { return element.rpcUrl === url })
       if (index !== -1) {
         rpcList.splice(index, 1)
       }
-      if (url !== 'http://localhost:8545') {
+      if (url !== 'http://localhost:8588') {
         let checkedChainId
         if (!!chainId && !Number.isNaN(parseInt(chainId))) {
           checkedChainId = chainId

@@ -33,7 +33,7 @@ function createNetworkAndChainIdMiddleware ({ network }) {
   let netId
 
   switch (network) {
-    case 'mainnet':
+    case 'ethereum':
       netId = '1'
       chainId = '0x01'
       break

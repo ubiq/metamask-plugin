@@ -236,7 +236,7 @@ class AccountTracker {
 
     ethContract.balances(addresses, ethBalance, (error, result) => {
       if (error) {
-        log.warn(`MetaMask - Account Tracker single call balance fetch failed`, error)
+        log.warn(`Sparrow - Account Tracker single call balance fetch failed`, error)
         return Promise.all(addresses.map(this._updateAccount.bind(this)))
       }
       addresses.forEach((address, index) => {

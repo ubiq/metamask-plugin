@@ -2,10 +2,12 @@ const ROPSTEN = 'ropsten'
 const RINKEBY = 'rinkeby'
 const KOVAN = 'kovan'
 const MAINNET = 'mainnet'
+const ETHEREUM = 'ethereum'
 const LOCALHOST = 'localhost'
 const GOERLI = 'goerli'
 
-const MAINNET_CODE = 1
+const MAINNET_CODE = 88
+const ETHEREUM_CODE = 1
 const ROPSTEN_CODE = 3
 const RINKEYBY_CODE = 4
 const KOVAN_CODE = 42
@@ -14,7 +16,8 @@ const GOERLI_CODE = 5
 const ROPSTEN_DISPLAY_NAME = 'Ropsten'
 const RINKEBY_DISPLAY_NAME = 'Rinkeby'
 const KOVAN_DISPLAY_NAME = 'Kovan'
-const MAINNET_DISPLAY_NAME = 'Main Ethereum Network'
+const MAINNET_DISPLAY_NAME = 'Main Ubiq Network'
+const ETHEREUM_DISPLAY_NAME = 'Main Ethereum Network'
 const GOERLI_DISPLAY_NAME = 'Goerli'
 
 module.exports = {
@@ -22,6 +25,7 @@ module.exports = {
   RINKEBY,
   KOVAN,
   MAINNET,
+  ETHEREUM,
   LOCALHOST,
   GOERLI,
   MAINNET_CODE,
@@ -33,5 +37,6 @@ module.exports = {
   RINKEBY_DISPLAY_NAME,
   KOVAN_DISPLAY_NAME,
   MAINNET_DISPLAY_NAME,
+  ETHEREUM_DISPLAY_NAME,
   GOERLI_DISPLAY_NAME,
 }

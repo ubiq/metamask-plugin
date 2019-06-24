@@ -38,6 +38,9 @@ Network.prototype.render = function () {
   if (providerName === 'mainnet') {
     hoverText = context.t('mainnet')
     iconName = 'ethereum-network'
+  } else if (providerName === 'ethereum') {
+    hoverText = context.t('ethereum')
+    iconName = 'ethereum-network'
   } else if (providerName === 'ropsten') {
     hoverText = context.t('ropsten')
     iconName = 'ropsten-test-network'
@@ -59,7 +62,8 @@ Network.prototype.render = function () {
     h('div.network-component.pointer', {
       className: classnames({
         'network-component--disabled': this.props.disabled,
-        'ethereum-network': providerName === 'mainnet',
+        'ubiq-network': providerName === 'mainnet',
+        'ethereum-network': providerName === 'ethereum',
         'ropsten-test-network': providerName === 'ropsten',
         'kovan-test-network': providerName === 'kovan',
         'rinkeby-test-network': providerName === 'rinkeby',
@@ -74,6 +78,16 @@ Network.prototype.render = function () {
     }, [
       (function () {
         switch (iconName) {
+          case 'ubiq-network':
+            return h('.network-indicator', [
+              h(NetworkDropdownIcon, {
+                backgroundColor: '#00ea90', // ubiq-green
+                nonSelectBackgroundColor: '#15afb2',
+                loading: networkNumber === 'loading',
+              }),
+              h('.network-name', context.t('mainnet')),
+              h('.network-indicator__down-arrow'),
+            ])
           case 'ethereum-network':
             return h('.network-indicator', [
               h(NetworkDropdownIcon, {
