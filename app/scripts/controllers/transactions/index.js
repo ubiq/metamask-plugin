@@ -124,7 +124,7 @@ class TransactionController extends EventEmitter {
     if (Number.isNaN(getChainId)) {
       return 0
     } else {
-      return getChainId
+      return getChainId === 88 ? 8 : getChainId
     }
   }
 
