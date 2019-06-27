@@ -10,11 +10,7 @@ import Button from '../../ui/button'
 
 let DIRECT_DEPOSIT_ROW_TITLE
 let DIRECT_DEPOSIT_ROW_TEXT
-let WYRE_ROW_TITLE
-let WYRE_ROW_TEXT
 let FAUCET_ROW_TITLE
-let COINSWITCH_ROW_TITLE
-let COINSWITCH_ROW_TEXT
 
 function mapStateToProps (state) {
   return {
@@ -25,12 +21,6 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
   return {
-    toWyre: (address) => {
-      dispatch(actions.buyEth({ service: 'wyre', address, amount: 0 }))
-    },
-    toCoinSwitch: (address) => {
-      dispatch(actions.buyEth({ service: 'coinswitch', address }))
-    },
     hideModal: () => {
       dispatch(actions.hideModal())
     },
@@ -51,11 +41,7 @@ function DepositEtherModal (_, context) {
   // need to set after i18n locale has loaded
   DIRECT_DEPOSIT_ROW_TITLE = context.t('directDepositEther')
   DIRECT_DEPOSIT_ROW_TEXT = context.t('directDepositEtherExplainer')
-  WYRE_ROW_TITLE = context.t('buyWithWyre')
-  WYRE_ROW_TEXT = context.t('buyWithWyreDescription')
   FAUCET_ROW_TITLE = context.t('testFaucet')
-  COINSWITCH_ROW_TITLE = context.t('buyCoinSwitch')
-  COINSWITCH_ROW_TEXT = context.t('buyCoinSwitchExplainer')
 }
 
 DepositEtherModal.contextTypes = {
@@ -121,7 +107,7 @@ DepositEtherModal.prototype.renderRow = function ({
 }
 
 DepositEtherModal.prototype.render = function () {
-  const { network, toWyre, toCoinSwitch, address, toFaucet } = this.props
+  const { network, address, toFaucet } = this.props
 
   const isTestNetwork = ['3', '4', '5', '42'].find(n => n === network)
   const networkName = getNetworkDisplayName(network)
@@ -166,34 +152,6 @@ DepositEtherModal.prototype.render = function () {
           buttonLabel: this.context.t('getEther'),
           onButtonClick: () => toFaucet(network),
           hide: !isTestNetwork,
-        }),
-
-        this.renderRow({
-          logo: h('div.deposit-ether-modal__logo', {
-            style: {
-              backgroundImage: 'url(\'./images/wyre.svg\')',
-              height: '40px',
-            },
-          }),
-          title: WYRE_ROW_TITLE,
-          text: WYRE_ROW_TEXT,
-          buttonLabel: this.context.t('continueToWyre'),
-          onButtonClick: () => toWyre(address),
-          hide: isTestNetwork,
-        }),
-
-        this.renderRow({
-          logo: h('div.deposit-ether-modal__logo', {
-            style: {
-              backgroundImage: 'url(\'./images/coinswitch_logo.png\')',
-              height: '40px',
-            },
-          }),
-          title: COINSWITCH_ROW_TITLE,
-          text: COINSWITCH_ROW_TEXT,
-          buttonLabel: this.context.t('continueToCoinSwitch'),
-          onButtonClick: () => toCoinSwitch(address),
-          hide: isTestNetwork,
         }),
 
       ]),
