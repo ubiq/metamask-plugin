@@ -39,7 +39,7 @@ describe('Recipient Blacklist Checker', function () {
     })
 
     it('fails on mainnet', function () {
-      const mainnetId = 1
+      const mainnetId = 88
       let callCount = 0
       publicAccounts.forEach((account) => {
         try {
@@ -54,7 +54,7 @@ describe('Recipient Blacklist Checker', function () {
     })
 
     it('fails for public account - uppercase', function () {
-      const mainnetId = 1
+      const mainnetId = 88
       const publicAccount = '0X0D1D4E623D10F9FBA5DB95830F7D3839406C6AF2'
       try {
         recipientBlackListChecker.checkAccount(mainnetId, publicAccount)
@@ -65,7 +65,7 @@ describe('Recipient Blacklist Checker', function () {
     })
 
     it('fails for public account - lowercase', async function () {
-      const mainnetId = 1
+      const mainnetId = 88
       const publicAccount = '0x0d1d4e623d10f9fba5db95830f7d3839406c6af2'
       try {
         await recipientBlackListChecker.checkAccount(mainnetId, publicAccount)

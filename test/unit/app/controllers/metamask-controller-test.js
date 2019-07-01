@@ -247,13 +247,13 @@ describe('MetaMaskController', function () {
 
   describe('preferencesController', function () {
 
-    it('defaults useBlockie to false', function () {
-      assert.equal(metamaskController.preferencesController.store.getState().useBlockie, false)
+    it('defaults useBlockie to true', function () {
+      assert.equal(metamaskController.preferencesController.store.getState().useBlockie, true)
     })
 
-    it('setUseBlockie to true', function () {
-      metamaskController.setUseBlockie(true, noop)
-      assert.equal(metamaskController.preferencesController.store.getState().useBlockie, true)
+    it('setUseBlockie to false', function () {
+      metamaskController.setUseBlockie(false, noop)
+      assert.equal(metamaskController.preferencesController.store.getState().useBlockie, false)
     })
 
   })

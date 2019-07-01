@@ -33,7 +33,8 @@ require('abortcontroller-polyfill/dist/polyfill-patch-fetch')
 require('jsdom-global')()
 
 // localStorage
-window.localStorage = {}
+//window.localStorage = {}
+Object.defineProperty(window, 'localStorage', { value: {}, configurable:true, enumerable:true, writable:true })
 
 // crypto.getRandomValues
 if (!window.crypto) window.crypto = {}
