@@ -29,23 +29,24 @@ const SET_BASIC_API_ESTIMATES_LAST_RETRIEVED = 'metamask/gas/SET_BASIC_API_ESTIM
 const SET_BASIC_PRICE_ESTIMATES_LAST_RETRIEVED = 'metamask/gas/SET_BASIC_PRICE_ESTIMATES_LAST_RETRIEVED'
 
 // TODO: determine if this approach to initState is consistent with conventional ducks pattern
+// TODO: provide equivilent APIs via ubiqscan - xocel
 const initState = {
   customData: {
     price: null,
     limit: null,
   },
   basicEstimates: {
-    average: null,
-    fastestWait: null,
-    fastWait: null,
-    fast: null,
-    safeLowWait: null,
-    blockNum: null,
-    avgWait: null,
-    blockTime: null,
-    speed: null,
-    fastest: null,
-    safeLow: null,
+    average: 20,
+    fastestWait: 0.4,
+    fastWait: 0.5,
+    fast: 20,
+    safeLowWait: 5.2,
+    blockNum: 879662,
+    avgWait: 2.7,
+    blockTime: 88,
+    speed: 0.6170357116260119,
+    fastest: 50,
+    safeLow: 18,
   },
   basicEstimateIsLoading: true,
   gasEstimatesLoading: true,
@@ -216,9 +217,9 @@ export function fetchBasicGasEstimates () {
         const timeRetrieved = Date.now()
         dispatch(setBasicPriceEstimatesLastRetrieved(timeRetrieved))
         saveLocalStorageData(timeRetrieved, 'BASIC_PRICE_ESTIMATES_LAST_RETRIEVED')
-        saveLocalStorageData(basicEstimates, 'BASIC_PRICE_ESTIMATES')
+        //saveLocalStorageData(basicEstimates, 'BASIC_PRICE_ESTIMATES')
 
-        return basicEstimates
+        return initState.basicEstimates
       })
     : Promise.resolve(basicPriceAndTimeEstimates.length
         ? basicPriceAndTimeEstimates
@@ -226,9 +227,9 @@ export function fetchBasicGasEstimates () {
       )
 
     return promiseToFetch.then(basicEstimates => {
-      dispatch(setBasicGasEstimateData(basicEstimates))
+      //dispatch(setBasicGasEstimateData(basicEstimates))
       dispatch(basicGasEstimatesLoadingFinished())
-      return basicEstimates
+      return initState.basicEstimates
     })
   }
 }
@@ -290,9 +291,9 @@ export function fetchBasicGasAndTimeEstimates () {
           const timeRetrieved = Date.now()
           dispatch(setBasicApiEstimatesLastRetrieved(timeRetrieved))
           saveLocalStorageData(timeRetrieved, 'BASIC_GAS_AND_TIME_API_ESTIMATES_LAST_RETRIEVED')
-          saveLocalStorageData(basicEstimates, 'BASIC_GAS_AND_TIME_API_ESTIMATES')
+          //saveLocalStorageData(basicEstimates, 'BASIC_GAS_AND_TIME_API_ESTIMATES')
 
-          return basicEstimates
+          return initState.basicEstimates
         })
       : Promise.resolve(basicPriceAndTimeEstimates.length
           ? basicPriceAndTimeEstimates
@@ -300,9 +301,9 @@ export function fetchBasicGasAndTimeEstimates () {
         )
 
       return promiseToFetch.then(basicEstimates => {
-        dispatch(setBasicGasEstimateData(basicEstimates))
+        //dispatch(setBasicGasEstimateData(basicEstimates))
         dispatch(basicGasEstimatesLoadingFinished())
-        return basicEstimates
+        return initState.basicEstimates
       })
   }
 }
