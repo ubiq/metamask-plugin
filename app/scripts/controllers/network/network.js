@@ -143,13 +143,13 @@ module.exports = class NetworkController extends EventEmitter {
     this.providerConfig = providerConfig
   }
 
-  setMainnetRpcTarget (rpcTarget, chainId, ticker = 'UBQ', nickname = '') {
+  setMainnetRpcTarget (rpcTarget, chainId, ticker = 'UBQ') {
     const providerConfig = {
       type: MAINNET,
       rpcTarget,
       chainId,
       ticker,
-      nickname
+      nickname: MAINNET
     }
     this.providerConfig = providerConfig
   }
@@ -158,7 +158,7 @@ module.exports = class NetworkController extends EventEmitter {
     assert.notEqual(type, 'rpc', `NetworkController - cannot call "setProviderType" with type 'rpc'. use "setRpcTarget"`)
     assert(INFURA_PROVIDER_TYPES.includes(type) || type === LOCALHOST || type === MAINNET, `NetworkController - Unknown rpc type "${type}"`)
     if (type === MAINNET) {
-      this.setMainnetRpcTarget('https://rpc1.ubiqscan.io', '8', ticker, '')
+      this.setMainnetRpcTarget('https://rpc1.ubiqscan.io', '8', ticker)
     } else {
       const providerConfig = { type, rpcTarget, ticker, nickname }
       this.providerConfig = providerConfig

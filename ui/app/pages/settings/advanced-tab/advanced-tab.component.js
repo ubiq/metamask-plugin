@@ -138,7 +138,7 @@ export default class AdvancedTab extends PureComponent {
     )
   }
 
-  validateRpc (newRpc, chainId, ticker = 'ETH', nickname) {
+  validateRpc (newRpc, chainId, ticker = 'UBQ', nickname) {
     const { setRpcTarget, displayWarning } = this.props
     if (validUrl.isWebUri(newRpc)) {
       this.context.metricsEvent({

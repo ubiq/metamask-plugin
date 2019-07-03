@@ -96,7 +96,7 @@ function getAccountType (state) {
 
 function getSelectedAsset (state) {
   const selectedToken = getSelectedToken(state)
-  return selectedToken && selectedToken.symbol || 'ETH'
+  return selectedToken && selectedToken.symbol || 'UBQ'
 }
 
 function getCurrentNetworkId (state) {
@@ -303,12 +303,13 @@ function isEthereumNetwork (state) {
   const {
     KOVAN,
     MAINNET,
+    ETHEREUM,
     RINKEBY,
     ROPSTEN,
     GOERLI,
   } = NETWORK_TYPES
 
-  return [ KOVAN, MAINNET, RINKEBY, ROPSTEN, GOERLI].includes(networkType)
+  return [ KOVAN, MAINNET, ETHEREUM, RINKEBY, ROPSTEN, GOERLI].includes(networkType)
 }
 
 function preferencesSelector ({ metamask }) {
