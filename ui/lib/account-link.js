@@ -6,7 +6,7 @@ module.exports = function (address, network, rpcPrefs) {
   const net = parseInt(network)
   let link
   switch (net) {
-    case 1: // main net
+    case 88: // main net
       link = `https://ubiqscan.io/address/${address}`
       break
     case 2: // morden test net
