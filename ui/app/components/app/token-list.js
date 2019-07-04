@@ -106,18 +106,15 @@ TokenList.prototype.createFreshTokenTracker = function () {
   }
 
   if (!global.ethereumProvider) {
-    console.log('global.ethereumProvider not defined')
-    console.log(global.ethereumProvider)
     return
   }
 
   const { userAddress } = this.props
-
   this.tracker = new TokenTracker({
     userAddress,
     provider: global.ethereumProvider,
     tokens: this.props.tokens,
-    pollingInterval: 8000,
+    pollingInterval: 44000,
   })
 
 

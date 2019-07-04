@@ -44,8 +44,6 @@ class DetectTokensController {
       if (error) {
         warn(`Sparrow - DetectTokensController single call balance fetch failed`, error)
         return
-      } else {
-        warn(result)
       }
 
       tokensToDetect.forEach((tokenAddress, index) => {
